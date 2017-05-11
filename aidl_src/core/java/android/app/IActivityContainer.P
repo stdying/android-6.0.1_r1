@@ -1,0 +1,13 @@
+out/target/common/obj/JAVA_LIBRARIES/framework_intermediates/src/core/java/android/app/IActivityContainer.java: \
+  frameworks/base/core/java/android/app/IActivityContainer.aidl \
+  frameworks/base/core/java/android/app/IActivityContainerCallback.aidl \
+  frameworks/base/core/java/android/content/Intent.aidl \
+  frameworks/base/core/java/android/content/IIntentSender.aidl \
+  frameworks/base/core/java/android/view/InputEvent.aidl \
+  frameworks/base/core/java/android/view/Surface.aidl 
+
+frameworks/base/core/java/android/app/IActivityContainerCallback.aidl :
+frameworks/base/core/java/android/content/Intent.aidl :
+frameworks/base/core/java/android/content/IIntentSender.aidl :
+frameworks/base/core/java/android/view/InputEvent.aidl :
+frameworks/base/core/java/android/view/Surface.aidl :

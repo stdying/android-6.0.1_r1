@@ -1,0 +1,11 @@
+out/target/common/obj/JAVA_LIBRARIES/framework_intermediates/src/telephony/java/com/android/ims/internal/IImsVideoCallProvider.java: \
+  frameworks/base/telephony/java/com/android/ims/internal/IImsVideoCallProvider.aidl \
+  frameworks/base/core/java/android/net/Uri.aidl \
+  frameworks/base/core/java/android/view/Surface.aidl \
+  frameworks/base/telecomm/java/android/telecom/VideoProfile.aidl \
+  frameworks/base/telephony/java/com/android/ims/internal/IImsVideoCallCallback.aidl 
+
+frameworks/base/core/java/android/net/Uri.aidl :
+frameworks/base/core/java/android/view/Surface.aidl :
+frameworks/base/telecomm/java/android/telecom/VideoProfile.aidl :
+frameworks/base/telephony/java/com/android/ims/internal/IImsVideoCallCallback.aidl :

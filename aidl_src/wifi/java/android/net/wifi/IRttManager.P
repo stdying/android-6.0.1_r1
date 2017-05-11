@@ -1,0 +1,7 @@
+out/target/common/obj/JAVA_LIBRARIES/framework_intermediates/src/wifi/java/android/net/wifi/IRttManager.java: \
+  frameworks/base/wifi/java/android/net/wifi/IRttManager.aidl \
+  frameworks/base/core/java/android/os/Messenger.aidl \
+  frameworks/base/wifi/java/android/net/wifi/RttManager.aidl 
+
+frameworks/base/core/java/android/os/Messenger.aidl :
+frameworks/base/wifi/java/android/net/wifi/RttManager.aidl :

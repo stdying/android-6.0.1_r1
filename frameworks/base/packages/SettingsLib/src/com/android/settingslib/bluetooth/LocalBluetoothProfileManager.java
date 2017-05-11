@@ -183,7 +183,9 @@ public final class LocalBluetoothProfileManager {
 
     private void addProfile(LocalBluetoothProfile profile,
             String profileName, String stateChangedAction) {
+        //添加profile事件监听
         mEventManager.addProfileHandler(stateChangedAction, new StateChangedHandler(profile));
+        //保存profile
         mProfileNameMap.put(profileName, profile);
     }
 
@@ -202,8 +204,10 @@ public final class LocalBluetoothProfileManager {
     void setBluetoothStateOn() {
         ParcelUuid[] uuids = mLocalAdapter.getUuids();
         if (uuids != null) {
+            //更新profile文件信息
             updateLocalProfiles(uuids);
         }
+        //读取配对的设备
         mEventManager.readPairedDevices();
     }
 

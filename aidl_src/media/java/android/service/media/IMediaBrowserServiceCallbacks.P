@@ -1,0 +1,11 @@
+out/target/common/obj/JAVA_LIBRARIES/framework_intermediates/src/media/java/android/service/media/IMediaBrowserServiceCallbacks.java: \
+  frameworks/base/media/java/android/service/media/IMediaBrowserServiceCallbacks.aidl \
+  frameworks/base/core/java/android/content/pm/ParceledListSlice.aidl \
+  frameworks/base/graphics/java/android/graphics/Bitmap.aidl \
+  frameworks/base/media/java/android/media/session/MediaSession.aidl \
+  frameworks/base/core/java/android/os/Bundle.aidl 
+
+frameworks/base/core/java/android/content/pm/ParceledListSlice.aidl :
+frameworks/base/graphics/java/android/graphics/Bitmap.aidl :
+frameworks/base/media/java/android/media/session/MediaSession.aidl :
+frameworks/base/core/java/android/os/Bundle.aidl :

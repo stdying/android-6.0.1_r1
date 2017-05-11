@@ -1,0 +1,5 @@
+out/target/common/obj/JAVA_LIBRARIES/framework_intermediates/src/telephony/java/com/android/internal/telephony/ICarrierConfigLoader.java: \
+  frameworks/base/telephony/java/com/android/internal/telephony/ICarrierConfigLoader.aidl \
+  frameworks/base/core/java/android/os/PersistableBundle.aidl 
+
+frameworks/base/core/java/android/os/PersistableBundle.aidl :

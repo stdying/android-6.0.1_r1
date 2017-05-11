@@ -1,0 +1,9 @@
+out/target/common/obj/JAVA_LIBRARIES/framework_intermediates/src/telecomm/java/com/android/internal/telecom/IVideoProvider.java: \
+  frameworks/base/telecomm/java/com/android/internal/telecom/IVideoProvider.aidl \
+  frameworks/base/core/java/android/net/Uri.aidl \
+  frameworks/base/core/java/android/view/Surface.aidl \
+  frameworks/base/telecomm/java/android/telecom/VideoProfile.aidl 
+
+frameworks/base/core/java/android/net/Uri.aidl :
+frameworks/base/core/java/android/view/Surface.aidl :
+frameworks/base/telecomm/java/android/telecom/VideoProfile.aidl :

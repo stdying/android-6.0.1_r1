@@ -1,0 +1,5 @@
+out/target/common/obj/JAVA_LIBRARIES/framework_intermediates/src/core/java/com/android/internal/app/IAssistScreenshotReceiver.java: \
+  frameworks/base/core/java/com/android/internal/app/IAssistScreenshotReceiver.aidl \
+  frameworks/base/graphics/java/android/graphics/Bitmap.aidl 
+
+frameworks/base/graphics/java/android/graphics/Bitmap.aidl :

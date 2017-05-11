@@ -1,0 +1,9 @@
+out/target/common/obj/JAVA_LIBRARIES/framework_intermediates/src/core/java/android/bluetooth/IBluetoothGattCallback.java: \
+  frameworks/base/core/java/android/bluetooth/IBluetoothGattCallback.aidl \
+  frameworks/base/core/java/android/os/ParcelUuid.aidl \
+  frameworks/base/core/java/android/bluetooth/le/AdvertiseSettings.aidl \
+  frameworks/base/core/java/android/bluetooth/le/ScanResult.aidl 
+
+frameworks/base/core/java/android/os/ParcelUuid.aidl :
+frameworks/base/core/java/android/bluetooth/le/AdvertiseSettings.aidl :
+frameworks/base/core/java/android/bluetooth/le/ScanResult.aidl :

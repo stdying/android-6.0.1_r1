@@ -1,0 +1,31 @@
+out/target/common/obj/JAVA_LIBRARIES/framework_intermediates/src/core/java/android/app/INotificationManager.java: \
+  frameworks/base/core/java/android/app/INotificationManager.aidl \
+  frameworks/base/core/java/android/app/ITransientNotification.aidl \
+  frameworks/base/core/java/android/app/Notification.aidl \
+  frameworks/base/core/java/android/app/NotificationManager.aidl \
+  frameworks/base/core/java/android/content/ComponentName.aidl \
+  frameworks/base/core/java/android/content/Intent.aidl \
+  frameworks/base/core/java/android/content/pm/ParceledListSlice.aidl \
+  frameworks/base/core/java/android/net/Uri.aidl \
+  frameworks/base/core/java/android/os/Bundle.aidl \
+  frameworks/base/core/java/android/service/notification/Condition.aidl \
+  frameworks/base/core/java/android/service/notification/IConditionListener.aidl \
+  frameworks/base/core/java/android/service/notification/IConditionProvider.aidl \
+  frameworks/base/core/java/android/service/notification/INotificationListener.aidl \
+  frameworks/base/core/java/android/service/notification/StatusBarNotification.aidl \
+  frameworks/base/core/java/android/service/notification/ZenModeConfig.aidl 
+
+frameworks/base/core/java/android/app/ITransientNotification.aidl :
+frameworks/base/core/java/android/app/Notification.aidl :
+frameworks/base/core/java/android/app/NotificationManager.aidl :
+frameworks/base/core/java/android/content/ComponentName.aidl :
+frameworks/base/core/java/android/content/Intent.aidl :
+frameworks/base/core/java/android/content/pm/ParceledListSlice.aidl :
+frameworks/base/core/java/android/net/Uri.aidl :
+frameworks/base/core/java/android/os/Bundle.aidl :
+frameworks/base/core/java/android/service/notification/Condition.aidl :
+frameworks/base/core/java/android/service/notification/IConditionListener.aidl :
+frameworks/base/core/java/android/service/notification/IConditionProvider.aidl :
+frameworks/base/core/java/android/service/notification/INotificationListener.aidl :
+frameworks/base/core/java/android/service/notification/StatusBarNotification.aidl :
+frameworks/base/core/java/android/service/notification/ZenModeConfig.aidl :

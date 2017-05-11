@@ -1,0 +1,5 @@
+out/target/common/obj/JAVA_LIBRARIES/framework_intermediates/src/core/java/android/app/job/IJobService.java: \
+  frameworks/base/core/java/android/app/job/IJobService.aidl \
+  frameworks/base/core/java/android/app/job/JobParameters.aidl 
+
+frameworks/base/core/java/android/app/job/JobParameters.aidl :

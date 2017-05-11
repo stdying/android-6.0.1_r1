@@ -1,0 +1,9 @@
+out/target/common/obj/JAVA_LIBRARIES/framework_intermediates/src/core/java/android/content/IRestrictionsManager.java: \
+  frameworks/base/core/java/android/content/IRestrictionsManager.aidl \
+  frameworks/base/core/java/android/content/Intent.aidl \
+  frameworks/base/core/java/android/os/Bundle.aidl \
+  frameworks/base/core/java/android/os/PersistableBundle.aidl 
+
+frameworks/base/core/java/android/content/Intent.aidl :
+frameworks/base/core/java/android/os/Bundle.aidl :
+frameworks/base/core/java/android/os/PersistableBundle.aidl :

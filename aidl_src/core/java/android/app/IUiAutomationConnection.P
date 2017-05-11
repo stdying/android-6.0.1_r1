@@ -1,0 +1,15 @@
+out/target/common/obj/JAVA_LIBRARIES/framework_intermediates/src/core/java/android/app/IUiAutomationConnection.java: \
+  frameworks/base/core/java/android/app/IUiAutomationConnection.aidl \
+  frameworks/base/core/java/android/accessibilityservice/IAccessibilityServiceClient.aidl \
+  frameworks/base/graphics/java/android/graphics/Bitmap.aidl \
+  frameworks/base/core/java/android/view/InputEvent.aidl \
+  frameworks/base/core/java/android/view/WindowContentFrameStats.aidl \
+  frameworks/base/core/java/android/view/WindowAnimationFrameStats.aidl \
+  frameworks/base/core/java/android/os/ParcelFileDescriptor.aidl 
+
+frameworks/base/core/java/android/accessibilityservice/IAccessibilityServiceClient.aidl :
+frameworks/base/graphics/java/android/graphics/Bitmap.aidl :
+frameworks/base/core/java/android/view/InputEvent.aidl :
+frameworks/base/core/java/android/view/WindowContentFrameStats.aidl :
+frameworks/base/core/java/android/view/WindowAnimationFrameStats.aidl :
+frameworks/base/core/java/android/os/ParcelFileDescriptor.aidl :

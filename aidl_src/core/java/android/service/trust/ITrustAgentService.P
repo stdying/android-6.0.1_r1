@@ -1,0 +1,7 @@
+out/target/common/obj/JAVA_LIBRARIES/framework_intermediates/src/core/java/android/service/trust/ITrustAgentService.java: \
+  frameworks/base/core/java/android/service/trust/ITrustAgentService.aidl \
+  frameworks/base/core/java/android/os/PersistableBundle.aidl \
+  frameworks/base/core/java/android/service/trust/ITrustAgentServiceCallback.aidl 
+
+frameworks/base/core/java/android/os/PersistableBundle.aidl :
+frameworks/base/core/java/android/service/trust/ITrustAgentServiceCallback.aidl :

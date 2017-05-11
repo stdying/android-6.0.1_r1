@@ -1,0 +1,17 @@
+out/target/common/obj/JAVA_LIBRARIES/framework_intermediates/src/core/java/android/content/pm/ILauncherApps.java: \
+  frameworks/base/core/java/android/content/pm/ILauncherApps.aidl \
+  frameworks/base/core/java/android/content/ComponentName.aidl \
+  frameworks/base/core/java/android/content/Intent.aidl \
+  frameworks/base/core/java/android/content/pm/IOnAppsChangedListener.aidl \
+  frameworks/base/core/java/android/content/pm/ResolveInfo.aidl \
+  frameworks/base/graphics/java/android/graphics/Rect.aidl \
+  frameworks/base/core/java/android/os/Bundle.aidl \
+  frameworks/base/core/java/android/os/UserHandle.aidl \
+
+frameworks/base/core/java/android/content/ComponentName.aidl :
+frameworks/base/core/java/android/content/Intent.aidl :
+frameworks/base/core/java/android/content/pm/IOnAppsChangedListener.aidl :
+frameworks/base/core/java/android/content/pm/ResolveInfo.aidl :
+frameworks/base/graphics/java/android/graphics/Rect.aidl :
+frameworks/base/core/java/android/os/Bundle.aidl :
+frameworks/base/core/java/android/os/UserHandle.aidl :

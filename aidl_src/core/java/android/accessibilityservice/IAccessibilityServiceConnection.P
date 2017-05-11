@@ -1,0 +1,15 @@
+out/target/common/obj/JAVA_LIBRARIES/framework_intermediates/src/core/java/android/accessibilityservice/IAccessibilityServiceConnection.java: \
+  frameworks/base/core/java/android/accessibilityservice/IAccessibilityServiceConnection.aidl \
+  frameworks/base/core/java/android/os/Bundle.aidl \
+  frameworks/base/core/java/android/accessibilityservice/AccessibilityServiceInfo.aidl \
+  frameworks/base/core/java/android/view/MagnificationSpec.aidl \
+  frameworks/base/core/java/android/view/accessibility/AccessibilityNodeInfo.aidl \
+  frameworks/base/core/java/android/view/accessibility/IAccessibilityInteractionConnectionCallback.aidl \
+  frameworks/base/core/java/android/view/accessibility/AccessibilityWindowInfo.aidl 
+
+frameworks/base/core/java/android/os/Bundle.aidl :
+frameworks/base/core/java/android/accessibilityservice/AccessibilityServiceInfo.aidl :
+frameworks/base/core/java/android/view/MagnificationSpec.aidl :
+frameworks/base/core/java/android/view/accessibility/AccessibilityNodeInfo.aidl :
+frameworks/base/core/java/android/view/accessibility/IAccessibilityInteractionConnectionCallback.aidl :
+frameworks/base/core/java/android/view/accessibility/AccessibilityWindowInfo.aidl :

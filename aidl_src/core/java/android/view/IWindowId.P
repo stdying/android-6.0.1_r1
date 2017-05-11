@@ -1,0 +1,5 @@
+out/target/common/obj/JAVA_LIBRARIES/framework_intermediates/src/core/java/android/view/IWindowId.java: \
+  frameworks/base/core/java/android/view/IWindowId.aidl \
+  frameworks/base/core/java/android/view/IWindowFocusObserver.aidl 
+
+frameworks/base/core/java/android/view/IWindowFocusObserver.aidl :

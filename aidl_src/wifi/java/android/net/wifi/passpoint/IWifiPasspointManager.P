@@ -1,0 +1,11 @@
+out/target/common/obj/JAVA_LIBRARIES/framework_intermediates/src/wifi/java/android/net/wifi/passpoint/IWifiPasspointManager.java: \
+  frameworks/base/wifi/java/android/net/wifi/passpoint/IWifiPasspointManager.aidl \
+  frameworks/base/wifi/java/android/net/wifi/ScanResult.aidl \
+  frameworks/base/wifi/java/android/net/wifi/passpoint/WifiPasspointPolicy.aidl \
+  frameworks/base/wifi/java/android/net/wifi/passpoint/WifiPasspointCredential.aidl \
+  frameworks/base/core/java/android/os/Messenger.aidl 
+
+frameworks/base/wifi/java/android/net/wifi/ScanResult.aidl :
+frameworks/base/wifi/java/android/net/wifi/passpoint/WifiPasspointPolicy.aidl :
+frameworks/base/wifi/java/android/net/wifi/passpoint/WifiPasspointCredential.aidl :
+frameworks/base/core/java/android/os/Messenger.aidl :

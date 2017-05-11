@@ -182,13 +182,15 @@ public final class LocalBluetoothAdapter {
         return mState;
     }
 
+    //设置蓝牙状态
     synchronized void setBluetoothStateInt(int state) {
         mState = state;
-
+        //是打开状态更新信息
         if (state == BluetoothAdapter.STATE_ON) {
             // if mProfileManager hasn't been constructed yet, it will
             // get the adapter UUIDs in its constructor when it is.
             if (mProfileManager != null) {
+                //更新profile文件和读取配对设备
                 mProfileManager.setBluetoothStateOn();
             }
         }
@@ -204,11 +206,13 @@ public final class LocalBluetoothAdapter {
         return false;
     }
 
+    //使能蓝牙
     public void setBluetoothEnabled(boolean enabled) {
         boolean success = enabled
                 ? mAdapter.enable()
                 : mAdapter.disable();
 
+        //设置蓝牙状态
         if (success) {
             setBluetoothStateInt(enabled
                 ? BluetoothAdapter.STATE_TURNING_ON
@@ -219,6 +223,7 @@ public final class LocalBluetoothAdapter {
                         "success for enabled: " + enabled);
             }
 
+            //同步蓝牙状态
             syncBluetoothState();
         }
     }

@@ -187,6 +187,7 @@ public final class BluetoothEnabler implements SwitchBar.OnSwitchChangeListener 
 
         MetricsLogger.action(mContext, MetricsLogger.ACTION_BLUETOOTH_TOGGLE, isChecked);
 
+        //在LocalBluetoothAdapter中打开蓝牙
         if (mLocalAdapter != null) {
             mLocalAdapter.setBluetoothEnabled(isChecked);
         }

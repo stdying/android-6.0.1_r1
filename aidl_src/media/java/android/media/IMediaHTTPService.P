@@ -1,0 +1,5 @@
+out/target/common/obj/JAVA_LIBRARIES/framework_intermediates/src/media/java/android/media/IMediaHTTPService.java: \
+  frameworks/base/media/java/android/media/IMediaHTTPService.aidl \
+  frameworks/base/media/java/android/media/IMediaHTTPConnection.aidl 
+
+frameworks/base/media/java/android/media/IMediaHTTPConnection.aidl :

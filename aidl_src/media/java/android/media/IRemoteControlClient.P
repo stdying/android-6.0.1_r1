@@ -1,0 +1,9 @@
+out/target/common/obj/JAVA_LIBRARIES/framework_intermediates/src/media/java/android/media/IRemoteControlClient.java: \
+  frameworks/base/media/java/android/media/IRemoteControlClient.aidl \
+  frameworks/base/graphics/java/android/graphics/Bitmap.aidl \
+  frameworks/base/media/java/android/media/IRemoteControlDisplay.aidl \
+  frameworks/base/media/java/android/media/Rating.aidl 
+
+frameworks/base/graphics/java/android/graphics/Bitmap.aidl :
+frameworks/base/media/java/android/media/IRemoteControlDisplay.aidl :
+frameworks/base/media/java/android/media/Rating.aidl :

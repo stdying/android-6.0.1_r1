@@ -1,0 +1,5 @@
+out/target/common/obj/JAVA_LIBRARIES/framework_intermediates/src/location/java/android/location/IGpsNavigationMessageListener.java: \
+  frameworks/base/location/java/android/location/IGpsNavigationMessageListener.aidl \
+  frameworks/base/location/java/android/location/GpsNavigationMessageEvent.aidl 
+
+frameworks/base/location/java/android/location/GpsNavigationMessageEvent.aidl :

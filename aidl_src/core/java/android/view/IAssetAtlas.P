@@ -1,0 +1,5 @@
+out/target/common/obj/JAVA_LIBRARIES/framework_intermediates/src/core/java/android/view/IAssetAtlas.java: \
+  frameworks/base/core/java/android/view/IAssetAtlas.aidl \
+  frameworks/base/core/java/android/view/GraphicBuffer.aidl 
+
+frameworks/base/core/java/android/view/GraphicBuffer.aidl :

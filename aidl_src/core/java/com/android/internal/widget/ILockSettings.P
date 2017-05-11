@@ -1,0 +1,7 @@
+out/target/common/obj/JAVA_LIBRARIES/framework_intermediates/src/core/java/com/android/internal/widget/ILockSettings.java: \
+  frameworks/base/core/java/com/android/internal/widget/ILockSettings.aidl \
+  frameworks/base/core/java/android/app/trust/IStrongAuthTracker.aidl \
+  frameworks/base/core/java/com/android/internal/widget/VerifyCredentialResponse.aidl 
+
+frameworks/base/core/java/android/app/trust/IStrongAuthTracker.aidl :
+frameworks/base/core/java/com/android/internal/widget/VerifyCredentialResponse.aidl :

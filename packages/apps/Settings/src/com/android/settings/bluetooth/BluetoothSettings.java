@@ -140,7 +140,7 @@ public final class BluetoothSettings extends DeviceListPreferenceFragment implem
 
         final SettingsActivity activity = (SettingsActivity) getActivity();
         mSwitchBar = activity.getSwitchBar();
-
+        //蓝牙开关包装在BluetoothEnabler中
         mBluetoothEnabler = new BluetoothEnabler(activity, mSwitchBar);
         mBluetoothEnabler.setupSwitchBar();
     }

@@ -1,0 +1,9 @@
+out/target/common/obj/JAVA_LIBRARIES/framework_intermediates/src/core/java/android/service/notification/INotificationListener.java: \
+  frameworks/base/core/java/android/service/notification/INotificationListener.aidl \
+  frameworks/base/core/java/android/service/notification/IStatusBarNotificationHolder.aidl \
+  frameworks/base/core/java/android/service/notification/StatusBarNotification.aidl \
+  frameworks/base/core/java/android/service/notification/NotificationRankingUpdate.aidl 
+
+frameworks/base/core/java/android/service/notification/IStatusBarNotificationHolder.aidl :
+frameworks/base/core/java/android/service/notification/StatusBarNotification.aidl :
+frameworks/base/core/java/android/service/notification/NotificationRankingUpdate.aidl :
