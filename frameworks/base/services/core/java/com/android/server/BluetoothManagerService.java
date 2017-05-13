@@ -619,12 +619,14 @@ class BluetoothManagerService extends IBluetoothManager.Stub {
 
     }
     public boolean enable() {
+        //当前用户和系统用户
         if ((Binder.getCallingUid() != Process.SYSTEM_UID) &&
             (!checkIfCallerIsForegroundUser())) {
             Log.w(TAG,"enable(): not allowed for non-active and non system user");
             return false;
         }
 
+        //权限检查
         mContext.enforceCallingOrSelfPermission(BLUETOOTH_ADMIN_PERM,
                                                 "Need BLUETOOTH ADMIN permission");
         if (DBG) {
@@ -1534,12 +1536,14 @@ class BluetoothManagerService extends IBluetoothManager.Stub {
         mQuietEnable = quietMode;
 
         synchronized(mConnection) {
+            //检查服务是否已经启动并且已经绑定
             if ((mBluetooth == null) && (!mBinding)) {
                 //Start bind timeout and bind
                 Message timeoutMsg=mHandler.obtainMessage(MESSAGE_TIMEOUT_BIND);
                 mHandler.sendMessageDelayed(timeoutMsg,TIMEOUT_BIND_MS);
                 mConnection.setGetNameAddressOnly(false);
                 Intent i = new Intent(IBluetooth.class.getName());
+                //绑定服务，UserHandle为多用户考虑
                 if (!doBind(i, mConnection,Context.BIND_AUTO_CREATE | Context.BIND_IMPORTANT,
                         UserHandle.CURRENT)) {
                     mHandler.removeMessages(MESSAGE_TIMEOUT_BIND);
@@ -1565,6 +1569,7 @@ class BluetoothManagerService extends IBluetoothManager.Stub {
                 //Enable bluetooth
                 try {
                     if (!mQuietEnable) {
+                        //使能蓝牙
                         if(!mBluetooth.enable()) {
                             Log.e(TAG,"IBluetooth.enable() returned false");
                         }
