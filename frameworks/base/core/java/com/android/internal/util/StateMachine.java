@@ -787,17 +787,21 @@ public class StateMachine {
                 /** State that processed the message */
                 State msgProcessedState = null;
                 if (mIsConstructionCompleted) {
+                    //构建完成，开始处理状态
                     /** Normal path */
                     msgProcessedState = processMsg(msg);
+                    //处理完成msgProcessedState，由msgProcessedState进行状态转换，切换到下个状态
                 } else if (!mIsConstructionCompleted && (mMsg.what == SM_INIT_CMD)
                         && (mMsg.obj == mSmHandlerObj)) {
                     /** Initial one time path. */
                     mIsConstructionCompleted = true;
+                    //循环调用mStateStack中enter方法并将状态设为激活状态
                     invokeEnterMethods(0);
                 } else {
                     throw new RuntimeException("StateMachine.handleMessage: "
                             + "The start method not called, received msg: " + msg);
                 }
+
                 performTransitions(msgProcessedState, msg);
 
                 // We need to check if mSm == null here as we could be quitting.
@@ -807,6 +811,9 @@ public class StateMachine {
 
         /**
          * Do any transitions
+         *
+         * performTransitions来检查状态切换
+         *
          * @param msgProcessedState is the state that processed the message
          */
         private void performTransitions(State msgProcessedState, Message msg) {
@@ -928,6 +935,7 @@ public class StateMachine {
              * Determine the maximum depth of the state hierarchy
              * so we can allocate the state stacks.
              */
+            //计算状态树最大深度
             int maxDepth = 0;
             for (StateInfo si : mStateInfo.values()) {
                 int depth = 0;
@@ -940,11 +948,14 @@ public class StateMachine {
             }
             if (mDbg) mSm.log("completeConstruction: maxDepth=" + maxDepth);
 
+            //根据状态树的最大节点数，创建mStateStack，mTempStateStack状态栈
             mStateStack = new StateInfo[maxDepth];
             mTempStateStack = new StateInfo[maxDepth];
+            //初始化状态栈
             setupInitialStateStack();
 
             /** Sending SM_INIT_CMD message to invoke enter methods asynchronously */
+            //发送SM_INIT_CMD消息，异步调用enter方法
             sendMessageAtFrontOfQueue(obtainMessage(SM_INIT_CMD, mSmHandlerObj));
 
             if (mDbg) mSm.log("completeConstruction: X");
@@ -1002,6 +1013,7 @@ public class StateMachine {
 
         /**
          * Invoke the enter method starting at the entering index to top of state stack
+         * 循环调用mStateStack中enter方法并将状态设为激活状态
          */
         private final void invokeEnterMethods(int stateStackEnteringIndex) {
             for (int i = stateStackEnteringIndex; i <= mStateStackTopIndex; i++) {
@@ -1033,6 +1045,8 @@ public class StateMachine {
          * Move the contents of the temporary stack to the state stack
          * reversing the order of the items on the temporary stack as
          * they are moved.
+         *
+         * 将temporary stack栈中数据反序添冲到state stack中
          *
          * @return index into mStateStack where entering needs to start
          */
@@ -1096,6 +1110,7 @@ public class StateMachine {
                 mSm.log("setupInitialStateStack: E mInitialState=" + mInitialState.getName());
             }
 
+            //根据第一个初始状态，循环获取父状态
             StateInfo curStateInfo = mStateInfo.get(mInitialState);
             for (mTempStateStackCount = 0; curStateInfo != null; mTempStateStackCount++) {
                 mTempStateStack[mTempStateStackCount] = curStateInfo;
@@ -1104,7 +1119,7 @@ public class StateMachine {
 
             // Empty the StateStack
             mStateStackTopIndex = -1;
-
+            //将temporary stack栈中数据反序添冲到state stack中
             moveTempStateStackToStateStack();
         }
 
