@@ -197,8 +197,10 @@ public abstract class ProfileService extends Service {
             Log.e(mName, "Error starting profile. BluetoothAdapter is null");
         } else {
             if (DBG) log("start()");
+            //子类重写该方法，做相应事情，比如启动状态机
             mStartError = !start();
             if (!mStartError) {
+                //启动成功，通知服务状态改变
                 notifyProfileServiceStateChanged(BluetoothAdapter.STATE_ON);
             } else {
                 Log.e(mName, "Error starting profile. BluetoothAdapter is null");

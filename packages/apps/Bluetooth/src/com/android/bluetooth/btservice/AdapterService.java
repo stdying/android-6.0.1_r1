@@ -288,6 +288,7 @@ public class AdapterService extends Service {
         mHandler.sendMessage(m);
     }
 
+    //处理peofile服务状态变化
     private void processProfileServiceStateChanged(String serviceName, int state) {
         boolean doUpdate=false;
         boolean isBleTurningOn;
@@ -297,6 +298,7 @@ public class AdapterService extends Service {
 
         synchronized (mProfileServicesState) {
             Integer prevState = mProfileServicesState.get(serviceName);
+            //第一次进入，prevState状态为OFF
             if (prevState != null && prevState != state) {
                 mProfileServicesState.put(serviceName,state);
                 doUpdate=true;
@@ -320,6 +322,7 @@ public class AdapterService extends Service {
                  " isTurningOn=" + isTurningOn + " isTurningOff=" + isTurningOff +
                  " isBleTurningOn=" + isBleTurningOn + " isBleTurningOff=" + isBleTurningOff);
 
+        //在OffState中，isBleTurningOn设置为true
         if (isBleTurningOn) {
             if (serviceName.equals("com.android.bluetooth.gatt.GattService")) {
                 debugLog("GattService is started");
@@ -424,17 +427,24 @@ public class AdapterService extends Service {
         debugLog("onDestroy()");
     }
 
+    /**
+     *初始化一些信息??
+     */
     void BleOnProcessStart() {
         debugLog("BleOnProcessStart()");
+        //支持的profile service
         Class[] supportedProfileServices = Config.getSupportedProfiles();
         //Initialize data objects
         for (int i=0; i < supportedProfileServices.length;i++) {
             mProfileServicesState.put(supportedProfileServices[i].getName(),BluetoothAdapter.STATE_OFF);
         }
+
+        //初始化远程蓝牙设备
         mRemoteDevices = new RemoteDevices(this);
         mAdapterProperties.init(mRemoteDevices);
 
         debugLog("BleOnProcessStart() - Make Bond State Machine");
+        //启动蓝牙绑定状态状态
         mBondStateMachine = BondStateMachine.make(this, mAdapterProperties, mRemoteDevices);
 
         mJniCallbacks.init(mBondStateMachine,mRemoteDevices);
@@ -617,6 +627,7 @@ public class AdapterService extends Service {
         }
     };
 
+    //批量启动profile service
     @SuppressWarnings("rawtypes")
     private void setGattProfileServiceState(Class[] services, int state) {
         if (state != BluetoothAdapter.STATE_ON && state != BluetoothAdapter.STATE_OFF) {

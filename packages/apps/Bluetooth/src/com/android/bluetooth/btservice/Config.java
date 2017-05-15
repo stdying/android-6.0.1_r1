@@ -74,6 +74,7 @@ public class Config {
         R.bool.profile_supported_sap,
     };
 
+    //服务service集合，不包括OPP and PBAP
     private static Class[] SUPPORTED_PROFILES = new Class[0];
 
     static void init(Context ctx) {
@@ -97,6 +98,7 @@ public class Config {
         profiles.toArray(SUPPORTED_PROFILES);
     }
 
+    //profile的服务类信息，不包括OPP and PBAP
     static Class[]  getSupportedProfiles() {
         return SUPPORTED_PROFILES;
     }

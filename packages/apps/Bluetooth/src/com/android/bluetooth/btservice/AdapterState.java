@@ -40,10 +40,12 @@ final class AdapterState extends StateMachine {
     private static final boolean VDBG = true;
     private static final String TAG = "BluetoothAdapterState";
 
+    //打开蓝牙
     static final int BLE_TURN_ON = 0;
     static final int USER_TURN_ON = 1;
     static final int BREDR_STARTED=2;
     static final int ENABLED_READY = 3;
+    //开始打开蓝牙
     static final int BLE_STARTED=4;
 
     static final int USER_TURN_OFF = 20;
@@ -114,6 +116,7 @@ final class AdapterState extends StateMachine {
         addState(mPendingCommandState);
         mAdapterService = service;
         mAdapterProperties = adapterProperties;
+        //初始状态为关闭
         setInitialState(mOffState);
     }
 
@@ -152,11 +155,15 @@ final class AdapterState extends StateMachine {
             debugLog("Current state: OFF, message: " + msg.what);
 
             switch(msg.what) {
+                //初始状态是OffState，由OffState处理蓝牙开启操作
                case BLE_TURN_ON:
+                   //通知BluetoothmangerService蓝牙正在开启
                    notifyAdapterStateChange(BluetoothAdapter.STATE_BLE_TURNING_ON);
                    mPendingCommandState.setBleTurningOn(true);
                    transitionTo(mPendingCommandState);
+                   //发送延迟消息，检测打开超时任务
                    sendMessageDelayed(BLE_START_TIMEOUT, BLE_START_TIMEOUT_DELAY);
+                   //批量启动 profile service
                    adapterService.BleOnProcessStart();
                    break;
 
@@ -359,7 +366,7 @@ final class AdapterState extends StateMachine {
                     //Remove start timeout
                     removeMessages(BLE_START_TIMEOUT);
 
-                    //Enable
+                    //Enable,调用底层方法，开启蓝牙
                     if (!adapterService.enableNative()) {
                         errorLog("Error while turning Bluetooth on");
                         notifyAdapterStateChange(BluetoothAdapter.STATE_OFF);

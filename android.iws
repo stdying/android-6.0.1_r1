@@ -51,149 +51,123 @@
       <file leaf-file-name="AdapterService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/packages/apps/Bluetooth/src/com/android/bluetooth/btservice/AdapterService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
-              <caret line="92" column="36" selection-start-line="92" selection-start-column="36" selection-end-line="92" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StateMachine.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/frameworks/base/core/java/com/android/internal/util/StateMachine.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="789" column="17" selection-start-line="789" selection-start-column="17" selection-end-line="789" selection-end-column="17" />
+            <state relative-caret-position="511">
+              <caret line="328" column="102" selection-start-line="328" selection-start-column="102" selection-end-line="328" selection-end-column="102" />
               <folding>
-                <element signature="e#0#620#0" expanded="true" />
-                <element signature="docComment;class#StateMachine#0" expanded="false" />
-                <element signature="e#25216#25225#0" expanded="true" />
-                <element signature="e#25904#25905#0" expanded="true" />
-                <element signature="e#25954#25955#0" expanded="true" />
-                <element signature="e#47542#47543#0" expanded="true" />
-                <element signature="e#47592#47593#0" expanded="true" />
-                <element signature="e#47750#47751#0" expanded="true" />
-                <element signature="e#47798#47799#0" expanded="true" />
-                <element signature="e#50224#50225#0" expanded="true" />
-                <element signature="e#50268#50269#0" expanded="true" />
+                <element signature="e#3384#3400#0" expanded="true" />
+                <element signature="e#6721#6737#0" expanded="true" />
+                <element signature="e#22682#24316#0" expanded="true" />
+                <element signature="e#24315#24316#0" expanded="true" />
+                <element signature="e#24349#24378#0" expanded="true" />
+                <element signature="e#26235#26264#0" expanded="true" />
+                <element signature="e#51005#51006#0" expanded="true" />
+                <element signature="e#51043#51044#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Handler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frameworks/base/core/java/android/os/Handler.java">
+      <file leaf-file-name="BluetoothManagerService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/BluetoothManagerService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="299">
+              <caret line="548" column="27" selection-start-line="548" selection-start-column="27" selection-end-line="548" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProfileService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/packages/apps/Bluetooth/src/com/android/bluetooth/btservice/ProfileService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="371">
+              <caret line="223" column="48" selection-start-line="223" selection-start-column="12" selection-end-line="223" selection-end-column="86" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HeadsetService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/packages/apps/Bluetooth/src/com/android/bluetooth/hfp/HeadsetService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="287">
-              <caret line="253" column="25" selection-start-line="253" selection-start-column="25" selection-end-line="253" selection-end-column="25" />
+              <caret line="60" column="22" selection-start-line="60" selection-start-column="22" selection-end-line="60" selection-end-column="22" />
               <folding>
-                <element signature="e#10258#10259#0" expanded="true" />
-                <element signature="e#10301#10302#0" expanded="true" />
-                <element signature="e#21494#21495#0" expanded="true" />
-                <element signature="e#21549#21550#0" expanded="true" />
-                <element signature="e#27541#27542#0" expanded="true" />
-                <element signature="e#27600#27601#0" expanded="true" />
+                <element signature="e#1931#1932#0" expanded="true" />
+                <element signature="e#1986#1987#0" expanded="true" />
+                <element signature="e#4609#4610#0" expanded="true" />
+                <element signature="e#4647#4648#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Looper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frameworks/base/core/java/android/os/Looper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="641">
-              <caret line="147" column="23" selection-start-line="147" selection-start-column="23" selection-end-line="147" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MessageQueue.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frameworks/base/core/java/android/os/MessageQueue.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="532" column="12" selection-start-line="532" selection-start-column="12" selection-end-line="532" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Message.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frameworks/base/core/java/android/os/Message.java">
+      <file leaf-file-name="A2dpService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/packages/apps/Bluetooth/src/com/android/bluetooth/a2dp/A2dpService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="287">
-              <caret line="319" column="16" selection-start-line="319" selection-start-column="16" selection-end-line="319" selection-end-column="16" />
+              <caret line="62" column="22" selection-start-line="62" selection-start-column="22" selection-end-line="62" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WifiP2pServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frameworks/opt/net/wifi/service/java/com/android/server/wifi/p2p/WifiP2pServiceImpl.java">
+      <file leaf-file-name="GattService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/packages/apps/Bluetooth/src/com/android/bluetooth/gatt/GattService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="13216">
-              <caret line="559" column="12" selection-start-line="559" selection-start-column="12" selection-end-line="559" selection-end-column="12" />
-              <folding>
-                <element signature="e#0#136657#0" expanded="false" />
-                <element signature="imports" expanded="false" />
-                <element signature="e#11542#11543#0" expanded="false" />
-                <element signature="e#11579#11580#0" expanded="false" />
-                <element signature="e#38857#38858#0" expanded="false" />
-                <element signature="e#38943#38944#0" expanded="false" />
-                <element signature="e#39040#39041#0" expanded="false" />
-                <element signature="e#39088#39089#0" expanded="false" />
-                <element signature="e#40031#40032#0" expanded="false" />
-                <element signature="e#40079#40080#0" expanded="false" />
-                <element signature="e#72933#72934#0" expanded="false" />
-                <element signature="e#72981#72982#0" expanded="false" />
-                <element signature="e#98553#98554#0" expanded="false" />
-                <element signature="e#98601#98602#0" expanded="false" />
-                <element signature="e#128188#128189#0" expanded="false" />
-                <element signature="e#128218#128219#0" expanded="false" />
-                <element signature="e#128269#128270#0" expanded="false" />
-                <element signature="e#128299#128300#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WifiController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frameworks/opt/net/wifi/service/java/com/android/server/wifi/WifiController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3668">
-              <caret line="173" column="8" selection-start-line="173" selection-start-column="8" selection-end-line="173" selection-end-column="8" />
-              <folding>
-                <element signature="e#0#34124#0" expanded="false" />
-                <element signature="imports" expanded="false" />
-                <element signature="e#10804#10805#0" expanded="false" />
-                <element signature="e#10861#10862#0" expanded="false" />
-                <element signature="e#11355#11356#0" expanded="false" />
-                <element signature="e#11405#11406#0" expanded="false" />
-                <element signature="e#11881#11882#0" expanded="false" />
-                <element signature="e#11934#11935#0" expanded="false" />
-                <element signature="e#21094#21095#0" expanded="false" />
-                <element signature="e#21162#21163#0" expanded="false" />
-                <element signature="e#32801#32802#0" expanded="false" />
-                <element signature="e#32864#32865#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="State.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frameworks/base/core/java/com/android/internal/util/State.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-787">
-              <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+            <state relative-caret-position="287">
+              <caret line="213" column="21" selection-start-line="213" selection-start-column="21" selection-end-line="213" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdapterState.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GattDebugUtils.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/packages/apps/Bluetooth/src/com/android/bluetooth/gatt/GattDebugUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-625">
+              <caret line="70" column="19" selection-start-line="70" selection-start-column="19" selection-end-line="70" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdapterState.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/packages/apps/Bluetooth/src/com/android/bluetooth/btservice/AdapterState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="641">
-              <caret line="332" column="24" selection-start-line="332" selection-start-column="24" selection-end-line="332" selection-end-column="24" />
+            <state relative-caret-position="119">
+              <caret line="276" column="37" selection-start-line="276" selection-start-column="18" selection-end-line="276" selection-end-column="37" />
+              <folding>
+                <element signature="e#4739#4740#0" expanded="true" />
+                <element signature="e#4764#4765#0" expanded="true" />
+                <element signature="e#5041#5042#0" expanded="true" />
+                <element signature="e#5093#5094#0" expanded="true" />
+                <element signature="e#6430#6431#0" expanded="true" />
+                <element signature="e#6484#6485#0" expanded="true" />
+                <element signature="e#10152#10153#0" expanded="true" />
+                <element signature="e#10215#10216#0" expanded="true" />
+                <element signature="e#10362#10363#0" expanded="true" />
+                <element signature="e#10405#10406#0" expanded="true" />
+                <element signature="e#10557#10558#0" expanded="true" />
+                <element signature="e#10601#10602#0" expanded="true" />
+                <element signature="e#10664#10665#0" expanded="true" />
+                <element signature="e#10720#10721#0" expanded="true" />
+                <element signature="e#10763#10764#0" expanded="true" />
+                <element signature="e#10809#10810#0" expanded="true" />
+                <element signature="e#10976#10977#0" expanded="true" />
+                <element signature="e#11023#11024#0" expanded="true" />
+                <element signature="e#19518#19519#0" expanded="true" />
+                <element signature="e#19558#19559#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BluetoothAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frameworks/base/core/java/android/bluetooth/BluetoothAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="287">
+              <caret line="167" column="28" selection-start-line="167" selection-start-column="28" selection-end-line="167" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -219,6 +193,10 @@
         <option value="$PROJECT_DIR$/frameworks/base/core/java/android/bluetooth/BluetoothAdapter.java" />
         <option value="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/BluetoothManagerService.java" />
         <option value="$PROJECT_DIR$/frameworks/base/core/java/com/android/internal/util/StateMachine.java" />
+        <option value="$PROJECT_DIR$/packages/apps/Bluetooth/src/com/android/bluetooth/btservice/Config.java" />
+        <option value="$PROJECT_DIR$/packages/apps/Bluetooth/src/com/android/bluetooth/btservice/ProfileService.java" />
+        <option value="$PROJECT_DIR$/packages/apps/Bluetooth/src/com/android/bluetooth/btservice/AdapterService.java" />
+        <option value="$PROJECT_DIR$/packages/apps/Bluetooth/src/com/android/bluetooth/btservice/AdapterState.java" />
       </list>
     </option>
   </component>
@@ -272,15 +250,15 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="AndroidView">
-        <subPane />
-      </pane>
-      <pane id="ProjectPane">
         <subPane />
       </pane>
       <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane />
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -628,7 +606,7 @@
   </component>
   <component name="StructureViewFactory">
     <option name="AUTOSCROLL_MODE" value="false" />
-    <option name="ACTIVE_ACTIONS" value=",ALPHA_COMPARATOR,SHOW_FIELDS" />
+    <option name="ACTIVE_ACTIONS" value=",ALPHA_COMPARATOR,SHOW_FIELDS,SHOW_PROPERTIES" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -667,9 +645,9 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33924612" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20053297" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12734865" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13890426" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22191478" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12688172" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15550636" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Fabric" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32982844" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -822,83 +800,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/frameworks/base/core/java/android/bluetooth/IBluetoothManager.aidl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="39" column="38" selection-start-line="39" selection-start-column="38" selection-end-line="39" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/SystemService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="46" column="22" selection-start-line="46" selection-start-column="22" selection-end-line="46" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/apps/Bluetooth/src/com/android/bluetooth/a2dp/A2dpSinkStateMachine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="62" column="24" selection-start-line="62" selection-start-column="24" selection-end-line="62" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/apps/Bluetooth/src/com/android/bluetooth/map/BluetoothMapService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="35" column="9" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/apps/Bluetooth/src/com/android/bluetooth/btservice/AdapterApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-336">
-          <caret line="25" column="37" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frameworks/base/core/java/android/app/Application.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="44" column="13" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/apps/Bluetooth/src/com/android/bluetooth/btservice/ProfileService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frameworks/base/core/java/android/app/Service.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="299" column="22" selection-start-line="299" selection-start-column="22" selection-end-line="299" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/apps/Bluetooth/src/com/android/bluetooth/btservice/BondStateMachine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="46" column="12" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/apps/Bluetooth/src/com/android/bluetooth/pbap/BluetoothPbapConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
-          <caret line="51" column="7" selection-start-line="51" selection-start-column="7" selection-end-line="51" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/apps/Bluetooth/src/com/android/bluetooth/a2dp/A2dpService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="39" column="19" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/packages/apps/Bluetooth/src/com/android/bluetooth/a2dp/A2dpStateMachine.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="719">
@@ -998,13 +899,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frameworks/base/core/java/android/bluetooth/BluetoothAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="900" column="40" selection-start-line="900" selection-start-column="40" selection-end-line="900" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/aidl_src/android/bluetooth/IBluetoothManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="344">
@@ -1067,32 +961,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5796">
           <caret line="225" column="15" selection-start-line="225" selection-start-column="15" selection-end-line="225" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/aidl_src/android/bluetooth/IBluetoothCallback.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/BluetoothManagerService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42252">
-          <caret line="1572" column="43" selection-start-line="1572" selection-start-column="43" selection-end-line="1572" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#79015#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#40999#41000#0" expanded="false" />
-            <element signature="e#41052#41053#0" expanded="false" />
-            <element signature="e#41101#41102#0" expanded="false" />
-            <element signature="e#41151#41152#0" expanded="false" />
-            <element signature="e#43160#43161#0" expanded="false" />
-            <element signature="e#43197#43198#0" expanded="false" />
-            <element signature="e#74834#74835#0" expanded="false" />
-            <element signature="e#74911#74912#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1301,20 +1169,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3668">
           <caret line="173" column="8" selection-start-line="173" selection-start-column="8" selection-end-line="173" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#34124#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#10804#10805#0" expanded="false" />
-            <element signature="e#10861#10862#0" expanded="false" />
-            <element signature="e#11355#11356#0" expanded="false" />
-            <element signature="e#11405#11406#0" expanded="false" />
-            <element signature="e#11881#11882#0" expanded="false" />
-            <element signature="e#11934#11935#0" expanded="false" />
-            <element signature="e#21094#21095#0" expanded="false" />
-            <element signature="e#21162#21163#0" expanded="false" />
-            <element signature="e#32801#32802#0" expanded="false" />
-            <element signature="e#32864#32865#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1322,48 +1177,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="13216">
           <caret line="559" column="12" selection-start-line="559" selection-start-column="12" selection-end-line="559" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#136657#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#11542#11543#0" expanded="false" />
-            <element signature="e#11579#11580#0" expanded="false" />
-            <element signature="e#38857#38858#0" expanded="false" />
-            <element signature="e#38943#38944#0" expanded="false" />
-            <element signature="e#39040#39041#0" expanded="false" />
-            <element signature="e#39088#39089#0" expanded="false" />
-            <element signature="e#40031#40032#0" expanded="false" />
-            <element signature="e#40079#40080#0" expanded="false" />
-            <element signature="e#72933#72934#0" expanded="false" />
-            <element signature="e#72981#72982#0" expanded="false" />
-            <element signature="e#98553#98554#0" expanded="false" />
-            <element signature="e#98601#98602#0" expanded="false" />
-            <element signature="e#128188#128189#0" expanded="false" />
-            <element signature="e#128218#128219#0" expanded="false" />
-            <element signature="e#128269#128270#0" expanded="false" />
-            <element signature="e#128299#128300#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/apps/Bluetooth/src/com/android/bluetooth/btservice/AdapterService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="92" column="36" selection-start-line="92" selection-start-column="36" selection-end-line="92" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/apps/Bluetooth/src/com/android/bluetooth/btservice/AdapterState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="641">
-          <caret line="332" column="24" selection-start-line="332" selection-start-column="24" selection-end-line="332" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frameworks/base/core/java/android/os/Looper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="641">
+        <state relative-caret-position="3584">
           <caret line="147" column="23" selection-start-line="147" selection-start-column="23" selection-end-line="147" selection-end-column="23" />
           <folding />
         </state>
@@ -1371,30 +1191,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/frameworks/base/core/java/android/os/MessageQueue.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
+        <state relative-caret-position="14196">
           <caret line="532" column="12" selection-start-line="532" selection-start-column="12" selection-end-line="532" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frameworks/base/core/java/android/os/Handler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="253" column="25" selection-start-line="253" selection-start-column="25" selection-end-line="253" selection-end-column="25" />
-          <folding>
-            <element signature="e#10258#10259#0" expanded="true" />
-            <element signature="e#10301#10302#0" expanded="true" />
-            <element signature="e#21494#21495#0" expanded="true" />
-            <element signature="e#21549#21550#0" expanded="true" />
-            <element signature="e#27541#27542#0" expanded="true" />
-            <element signature="e#27600#27601#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frameworks/base/core/java/android/os/Message.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
+        <state relative-caret-position="8540">
           <caret line="319" column="16" selection-start-line="319" selection-start-column="16" selection-end-line="319" selection-end-column="16" />
           <folding />
         </state>
@@ -1402,28 +1207,225 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/frameworks/base/core/java/com/android/internal/util/State.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-787">
+        <state relative-caret-position="308">
           <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/apps/Bluetooth/src/com/android/bluetooth/btservice/AdapterProperties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="35" column="6" selection-start-line="35" selection-start-column="6" selection-end-line="35" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#25073#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#1700#1717#0" expanded="false" />
+            <element signature="e#6478#6479#0" expanded="false" />
+            <element signature="e#6538#6539#0" expanded="false" />
+            <element signature="e#6633#6634#0" expanded="false" />
+            <element signature="e#6676#6677#0" expanded="false" />
+            <element signature="e#6782#6783#0" expanded="false" />
+            <element signature="e#6832#6833#0" expanded="false" />
+            <element signature="e#6952#6953#0" expanded="false" />
+            <element signature="e#7009#7010#0" expanded="false" />
+            <element signature="e#7120#7121#0" expanded="false" />
+            <element signature="e#7175#7176#0" expanded="false" />
+            <element signature="e#7297#7298#0" expanded="false" />
+            <element signature="e#7349#7350#0" expanded="false" />
+            <element signature="e#7471#7472#0" expanded="false" />
+            <element signature="e#7515#7516#0" expanded="false" />
+            <element signature="e#24875#24876#0" expanded="false" />
+            <element signature="e#24916#24917#0" expanded="false" />
+            <element signature="e#24957#24958#0" expanded="false" />
+            <element signature="e#24997#24998#0" expanded="false" />
+            <element signature="e#25038#25039#0" expanded="false" />
+            <element signature="e#25069#25070#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frameworks/base/core/java/android/os/Handler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="504" column="25" selection-start-line="504" selection-start-column="25" selection-end-line="504" selection-end-column="25" />
+          <folding>
+            <element signature="e#21088#21089#0" expanded="false" />
+            <element signature="e#21137#21138#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/aidl_src/android/bluetooth/IBluetoothCallback.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="661">
+          <caret line="101" column="12" selection-start-line="101" selection-start-column="12" selection-end-line="101" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/apps/Bluetooth/src/com/android/bluetooth/btservice/JniCallbacks.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frameworks/base/core/java/com/android/internal/util/StateMachine.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="789" column="17" selection-start-line="789" selection-start-column="17" selection-end-line="789" selection-end-column="17" />
+        <state relative-caret-position="287">
+          <caret line="1423" column="25" selection-start-line="1423" selection-start-column="25" selection-end-line="1423" selection-end-column="25" />
           <folding>
-            <element signature="e#0#620#0" expanded="true" />
+            <element signature="e#0#620#0" expanded="false" />
             <element signature="docComment;class#StateMachine#0" expanded="false" />
-            <element signature="e#25216#25225#0" expanded="true" />
-            <element signature="e#25904#25905#0" expanded="true" />
-            <element signature="e#25954#25955#0" expanded="true" />
-            <element signature="e#47542#47543#0" expanded="true" />
-            <element signature="e#47592#47593#0" expanded="true" />
-            <element signature="e#47750#47751#0" expanded="true" />
-            <element signature="e#47798#47799#0" expanded="true" />
-            <element signature="e#50224#50225#0" expanded="true" />
-            <element signature="e#50268#50269#0" expanded="true" />
+            <element signature="e#49413#49414#0" expanded="false" />
+            <element signature="e#49463#49464#0" expanded="false" />
+            <element signature="e#50224#50225#0" expanded="false" />
+            <element signature="e#50268#50269#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Android/Sdk/sources/android-23/java/util/HashMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="379" column="23" selection-start-line="379" selection-start-column="23" selection-end-line="379" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frameworks/base/core/java/android/bluetooth/BluetoothAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="167" column="28" selection-start-line="167" selection-start-column="28" selection-end-line="167" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/apps/Bluetooth/src/com/android/bluetooth/btservice/Config.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="582">
+          <caret line="101" column="20" selection-start-line="101" selection-start-column="20" selection-end-line="101" selection-end-column="20" />
+          <folding>
+            <element signature="e#3015#3022#0" expanded="true" />
+            <element signature="e#3605#3606#0" expanded="true" />
+            <element signature="e#3646#3647#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/apps/Bluetooth/src/com/android/bluetooth/btservice/BondStateMachine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="80" column="35" selection-start-line="80" selection-start-column="35" selection-end-line="80" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/apps/Bluetooth/src/com/android/bluetooth/btservice/RemoteDevices.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="616">
+          <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/apps/Bluetooth/src/com/android/bluetooth/a2dp/A2dpService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="62" column="22" selection-start-line="62" selection-start-column="22" selection-end-line="62" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/apps/Bluetooth/src/com/android/bluetooth/gatt/GattDebugUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-625">
+          <caret line="70" column="19" selection-start-line="70" selection-start-column="19" selection-end-line="70" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/apps/Bluetooth/src/com/android/bluetooth/gatt/GattService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="213" column="21" selection-start-line="213" selection-start-column="21" selection-end-line="213" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/BluetoothManagerService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="548" column="27" selection-start-line="548" selection-start-column="27" selection-end-line="548" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/apps/Bluetooth/src/com/android/bluetooth/hfp/HeadsetService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="60" column="22" selection-start-line="60" selection-start-column="22" selection-end-line="60" selection-end-column="22" />
+          <folding>
+            <element signature="e#1931#1932#0" expanded="true" />
+            <element signature="e#1986#1987#0" expanded="true" />
+            <element signature="e#4609#4610#0" expanded="true" />
+            <element signature="e#4647#4648#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/apps/Bluetooth/src/com/android/bluetooth/btservice/ProfileService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="223" column="48" selection-start-line="223" selection-start-column="12" selection-end-line="223" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/apps/Bluetooth/src/com/android/bluetooth/btservice/AdapterService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="511">
+          <caret line="328" column="102" selection-start-line="328" selection-start-column="102" selection-end-line="328" selection-end-column="102" />
+          <folding>
+            <element signature="e#3384#3400#0" expanded="true" />
+            <element signature="e#6721#6737#0" expanded="true" />
+            <element signature="e#22682#24316#0" expanded="true" />
+            <element signature="e#24315#24316#0" expanded="true" />
+            <element signature="e#24349#24378#0" expanded="true" />
+            <element signature="e#26235#26264#0" expanded="true" />
+            <element signature="e#51005#51006#0" expanded="true" />
+            <element signature="e#51043#51044#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/apps/Bluetooth/src/com/android/bluetooth/btservice/AdapterState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="276" column="37" selection-start-line="276" selection-start-column="18" selection-end-line="276" selection-end-column="37" />
+          <folding>
+            <element signature="e#4739#4740#0" expanded="true" />
+            <element signature="e#4764#4765#0" expanded="true" />
+            <element signature="e#5041#5042#0" expanded="true" />
+            <element signature="e#5093#5094#0" expanded="true" />
+            <element signature="e#6430#6431#0" expanded="true" />
+            <element signature="e#6484#6485#0" expanded="true" />
+            <element signature="e#10152#10153#0" expanded="true" />
+            <element signature="e#10215#10216#0" expanded="true" />
+            <element signature="e#10362#10363#0" expanded="true" />
+            <element signature="e#10405#10406#0" expanded="true" />
+            <element signature="e#10557#10558#0" expanded="true" />
+            <element signature="e#10601#10602#0" expanded="true" />
+            <element signature="e#10664#10665#0" expanded="true" />
+            <element signature="e#10720#10721#0" expanded="true" />
+            <element signature="e#10763#10764#0" expanded="true" />
+            <element signature="e#10809#10810#0" expanded="true" />
+            <element signature="e#10976#10977#0" expanded="true" />
+            <element signature="e#11023#11024#0" expanded="true" />
+            <element signature="e#19518#19519#0" expanded="true" />
+            <element signature="e#19558#19559#0" expanded="true" />
           </folding>
         </state>
       </provider>
