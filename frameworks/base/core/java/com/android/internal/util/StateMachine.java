@@ -693,12 +693,14 @@ public class StateMachine {
         private boolean mIsConstructionCompleted;
 
         /** Stack used to manage the current hierarchy of states */
+        //用于保存状态机中的链式状态关系
         private StateInfo mStateStack[];
 
         /** Top of mStateStack */
         private int mStateStackTopIndex = -1;
 
         /** A temporary stack used to manage the state stack */
+        //用于保存状态机中的链式状态关系，临时栈
         private StateInfo mTempStateStack[];
 
         /** The top of the mTempStateStack */
@@ -751,6 +753,7 @@ public class StateMachine {
 
         /**
          * State entered when transitionToHaltingState is called.
+         * 调用transitionToHaltingState进入暂停状态
          */
         private class HaltingState extends State {
             @Override
@@ -762,6 +765,10 @@ public class StateMachine {
 
         /**
          * State entered when a valid quit message is handled.
+         *
+         * 退出状态
+         * 会向消息队列发送一条SM_QUIT_CMD消息
+         * StateMachine#quit()
          */
         private class QuittingState extends State {
             @Override
@@ -775,6 +782,10 @@ public class StateMachine {
          * the current state's processMessage. It also handles
          * the enter/exit calls and placing any deferred messages
          * back onto the queue when transitioning to a new state.
+         *
+         * 调用当前状态处理消息，
+         *
+         * 调整更新状态栈stateStack的内容
          */
         @Override
         public final void handleMessage(Message msg) {
@@ -786,14 +797,16 @@ public class StateMachine {
 
                 /** State that processed the message */
                 State msgProcessedState = null;
+                //构建初始化是否已经完成
                 if (mIsConstructionCompleted) {
                     //构建完成，开始处理状态
                     /** Normal path */
                     msgProcessedState = processMsg(msg);
-                    //处理完成msgProcessedState，由msgProcessedState进行状态转换，切换到下个状态
+                    //处理完成msgProcessedState，处理完了这个Message以后，将切换到哪个State
                 } else if (!mIsConstructionCompleted && (mMsg.what == SM_INIT_CMD)
                         && (mMsg.obj == mSmHandlerObj)) {
                     /** Initial one time path. */
+                    //根据SM_INIT_CMD消息表明构建任务完成，设置完成标志，开始处理消息
                     mIsConstructionCompleted = true;
                     //循环调用mStateStack中enter方法并将状态设为激活状态
                     invokeEnterMethods(0);
@@ -802,6 +815,7 @@ public class StateMachine {
                             + "The start method not called, received msg: " + msg);
                 }
 
+                //msg处理后，做状态切换，更新mStateStack
                 performTransitions(msgProcessedState, msg);
 
                 // We need to check if mSm == null here as we could be quitting.
@@ -830,7 +844,7 @@ public class StateMachine {
              * always set msg.obj to the handler.
              */
             boolean recordLogMsg = mSm.recordLogRec(mMsg) && (msg.obj != mSmHandlerObj);
-
+            //记录处理过的消息
             if (mLogRecords.logOnlyTransitions()) {
                 /** Record only if there is a transition */
                 if (mDestState != null) {
@@ -843,6 +857,8 @@ public class StateMachine {
                         mDestState);
             }
 
+            //mDestState,具体状态调用transitionTo(State)时传入的参数
+            //具体状态在重写processMessage时，调用transitionTo(state)方法，设置下一步要切换的状态
             State destState = mDestState;
             if (destState != null) {
                 /**
@@ -855,10 +871,17 @@ public class StateMachine {
                      * Determine the states to exit and enter and return the
                      * common ancestor state of the enter/exit states. Then
                      * invoke the exit methods then the enter methods.
+                     *
+                     * 获取从destState到还没有active的父节点，
+                     * mTempStateStack存储是新的终止节点和旧终止节点的公共节点与新的终止节点的一段状态树
                      */
                     StateInfo commonStateInfo = setupTempStateStackWithStatesToEnter(destState);
                     invokeExitMethods(commonStateInfo);
+
+                    //stateStackEnteringIndex 需要调用enter方法的状态在mStateStack中位置
                     int stateStackEnteringIndex = moveTempStateStackToStateStack();
+
+                    //从stateStackEnteringIndex位置开始调用状态栈中state的enter并将active设为true
                     invokeEnterMethods(stateStackEnteringIndex);
 
                     /**
@@ -866,6 +889,8 @@ public class StateMachine {
                      * any deferred messages moved to the front of the message queue
                      * so they will be processed before any other messages in the
                      * message queue.
+                     *
+                     * 转换新状态后，将之前的延迟消息移动到消息队列的头部，使得延迟消息的处理早于其他消息
                      */
                     moveDeferredMessageAtFrontOfQueue();
 
@@ -935,7 +960,8 @@ public class StateMachine {
              * Determine the maximum depth of the state hierarchy
              * so we can allocate the state stacks.
              */
-            //计算状态树最大深度
+            //计算状态树最大深度,用于创建状态树容量
+            //状态树记录某个节点到根节点的状态路径，长度不会超过maxDeep
             int maxDepth = 0;
             for (StateInfo si : mStateInfo.values()) {
                 int depth = 0;
@@ -948,14 +974,17 @@ public class StateMachine {
             }
             if (mDbg) mSm.log("completeConstruction: maxDepth=" + maxDepth);
 
-            //根据状态树的最大节点数，创建mStateStack，mTempStateStack状态栈
+            //根据状态栈的最大节点数，创建mStateStack，mTempStateStack状态栈
             mStateStack = new StateInfo[maxDepth];
             mTempStateStack = new StateInfo[maxDepth];
-            //初始化状态栈
+            //将状态路径存入状态栈
             setupInitialStateStack();
 
             /** Sending SM_INIT_CMD message to invoke enter methods asynchronously */
-            //发送SM_INIT_CMD消息，异步调用enter方法
+            /*
+            状态栈中存储当前节点到根节点的所有状态，根节点位于mStateStack的0位置
+             */
+            //开启状态数；通过发送SM_INIT_CMD消息，通知状态树可以工作，异步调用enter方法
             sendMessageAtFrontOfQueue(obtainMessage(SM_INIT_CMD, mSmHandlerObj));
 
             if (mDbg) mSm.log("completeConstruction: X");
@@ -965,15 +994,21 @@ public class StateMachine {
          * Process the message. If the current state doesn't handle
          * it, call the states parent and so on. If it is never handled then
          * call the state machines unhandledMessage method.
-         * @return the state that processed the message
+         *
+         * 调用当前状态处理消息，如果当前状态没有处理调用该状态的父状态处理，
+         * 如果最后都没有处理，调用unhandledMessage方法
+         *
+         * @return the state that processed the message 处理了该消息的状态
          */
         private final State processMsg(Message msg) {
+            //获取栈顶状态，当前所处的状态
             StateInfo curStateInfo = mStateStack[mStateStackTopIndex];
             if (mDbg) {
                 mSm.log("processMsg: " + curStateInfo.state.getName());
             }
 
             if (isQuit(msg)) {
+                //SM_QUIT_CMD消息，切换到mQuittingState状态
                 transitionTo(mQuittingState);
             } else {
                 while (!curStateInfo.state.processMessage(msg)) {
@@ -993,12 +1028,15 @@ public class StateMachine {
                     }
                 }
             }
+            //返回最后成功处理了Message的那个状态，如果没有，那么就是返回null
             return (curStateInfo != null) ? curStateInfo.state : null;
         }
 
         /**
          * Call the exit method for each state from the top of stack
          * up to the common ancestor state.
+         *
+         * 从栈顶节点开始到公共节点的节点执行exit并将active设为false
          */
         private final void invokeExitMethods(StateInfo commonStateInfo) {
             while ((mStateStackTopIndex >= 0)
@@ -1013,7 +1051,7 @@ public class StateMachine {
 
         /**
          * Invoke the enter method starting at the entering index to top of state stack
-         * 循环调用mStateStack中enter方法并将状态设为激活状态
+         * 从stateStackEnteringIndex开始循环调用mStateStack中enter方法并将状态设为激活状态
          */
         private final void invokeEnterMethods(int stateStackEnteringIndex) {
             for (int i = stateStackEnteringIndex; i <= mStateStackTopIndex; i++) {
@@ -1021,6 +1059,7 @@ public class StateMachine {
                 mStateStack[i].state.enter();
                 mStateStack[i].active = true;
             }
+            //enter 方法是进入状态的必要工作，enter方法执行完，对应状态开始进行消息处理 processMessage
         }
 
         /**
@@ -1033,11 +1072,13 @@ public class StateMachine {
              * as the most resent message and end with the oldest
              * messages at the front of the queue.
              */
+            //倒序取出消息，依次放到消息队列的头部
             for (int i = mDeferredMessages.size() - 1; i >= 0; i--) {
                 Message curMsg = mDeferredMessages.get(i);
                 if (mDbg) mSm.log("moveDeferredMessageAtFrontOfQueue; what=" + curMsg.what);
                 sendMessageAtFrontOfQueue(curMsg);
             }
+            //清空延迟队列
             mDeferredMessages.clear();
         }
 
@@ -1046,11 +1087,13 @@ public class StateMachine {
          * reversing the order of the items on the temporary stack as
          * they are moved.
          *
-         * 将temporary stack栈中数据反序添冲到state stack中
+         * 将temporary stack栈中数据反序添加到state stack中
          *
          * @return index into mStateStack where entering needs to start
          */
         private final int moveTempStateStackToStateStack() {
+            //startingIndex 表示mStateStack接受新状态的其实位置，
+            //不是每次都从0开始
             int startingIndex = mStateStackTopIndex + 1;
             int i = mTempStateStackCount - 1;
             int j = startingIndex;
@@ -1061,6 +1104,8 @@ public class StateMachine {
                 i -= 1;
             }
 
+            //invokeEnterMethods 会使用到这个变量
+            //新状态栈位置mStateStackTopIndex
             mStateStackTopIndex = j - 1;
             if (mDbg) {
                 mSm.log("moveTempStackToStateStack: X mStateStackTop=" + mStateStackTopIndex
@@ -1099,6 +1144,7 @@ public class StateMachine {
                 mSm.log("setupTempStateStackWithStatesToEnter: X mTempStateStackCount="
                         + mTempStateStackCount + ",curStateInfo: " + curStateInfo);
             }
+            //返回是公共节点
             return curStateInfo;
         }
 
@@ -1110,16 +1156,18 @@ public class StateMachine {
                 mSm.log("setupInitialStateStack: E mInitialState=" + mInitialState.getName());
             }
 
-            //根据第一个初始状态，循环获取父状态
+            //根据第一个初始状态
             StateInfo curStateInfo = mStateInfo.get(mInitialState);
             for (mTempStateStackCount = 0; curStateInfo != null; mTempStateStackCount++) {
                 mTempStateStack[mTempStateStackCount] = curStateInfo;
                 curStateInfo = curStateInfo.parentStateInfo;
             }
+            //循环完毕，根节点位于栈顶，初始节点位于栈底
 
-            // Empty the StateStack
+            // Empty the StateStack,清空mStateStack
             mStateStackTopIndex = -1;
             //将temporary stack栈中数据反序添冲到state stack中
+            //这是根节点位于栈顶,当前节点位于栈底
             moveTempStateStackToStateStack();
         }
 
