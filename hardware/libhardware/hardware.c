@@ -123,19 +123,24 @@ static int load(const char *id,
 }
 
 /*
+    检测是否存在库文件，
+    检查vendor路径和system路径
  * Check if a HAL with given name and subname exists, if so return 0, otherwise
  * otherwise return negative.  On success path will contain the path to the HAL.
  */
 static int hw_module_exists(char *path, size_t path_len, const char *name,
                             const char *subname)
 {
+   
     snprintf(path, path_len, "%s/%s.%s.so",
              HAL_LIBRARY_PATH2, name, subname);
+    //检测vendor路径下是否存在库文件
     if (access(path, R_OK) == 0)
         return 0;
-
+    // /system/lib64/hwsensors.msm8992.so
     snprintf(path, path_len, "%s/%s.%s.so",
              HAL_LIBRARY_PATH1, name, subname);
+    ////检测system路径下是否存在库文件
     if (access(path, R_OK) == 0)
         return 0;
 
@@ -166,12 +171,13 @@ int hw_get_module_by_class(const char *class_id, const char *inst,
 
     /* First try a property specific to the class and possibly instance */
     snprintf(prop_name, sizeof(prop_name), "ro.hardware.%s", name);
-    if (property_get(prop_name, prop, NULL) > 0) {
-        if (hw_module_exists(path, sizeof(path), name, prop) == 0) {
+    if (property_get(prop_name, prop, NULL) > 0) {  //??获取属相
+        if (hw_module_exists(path, sizeof(path), name, prop) == 0) {    //检测模块是否存在
             goto found;
         }
     }
 
+    //在hal层搜索动态共享库的方式
     /* Loop through the configuration variants looking for a module */
     for (i=0 ; i<HAL_VARIANT_KEYS_COUNT; i++) {
         if (property_get(variant_keys[i], prop, NULL) == 0) {
@@ -182,6 +188,7 @@ int hw_get_module_by_class(const char *class_id, const char *inst,
         }
     }
 
+    //最后尝试默认库
     /* Nothing found, try the default */
     if (hw_module_exists(path, sizeof(path), name, "default") == 0) {
         goto found;
@@ -192,10 +199,12 @@ int hw_get_module_by_class(const char *class_id, const char *inst,
 found:
     /* load the module, if this fails, we're doomed, and we should not try
      * to load a different variant. */
-    return load(class_id, path, module);
+    return load(class_id, path, module); ////装载库，得到module
 }
 
+//根据硬件id，获取id对应的硬件模块结构体
 int hw_get_module(const char *id, const struct hw_module_t **module)
-{
+{   
+    //id将作为路径一部分，下面代码的name
     return hw_get_module_by_class(id, NULL, module);
 }

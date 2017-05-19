@@ -74,11 +74,16 @@ __BEGIN_DECLS
 #define HARDWARE_DEVICE_API_VERSION(maj,min) HARDWARE_MAKE_API_VERSION(maj,min)
 #define HARDWARE_DEVICE_API_VERSION_2(maj,min,hdr) HARDWARE_MAKE_API_VERSION_2(maj,min,hdr)
 
+//硬件模块
 struct hw_module_t;
 struct hw_module_methods_t;
+//硬件设备
 struct hw_device_t;
 
 /**
+    每个硬件模块都需要 HAL_MODULE_INFO_SYM
+    必须以hw_module_t开始
+
  * Every hardware module must have a data structure named HAL_MODULE_INFO_SYM
  * and the fields of this data structure must begin with hw_module_t
  * followed by module specific information.
@@ -109,8 +114,9 @@ typedef struct hw_module_t {
      * versions outside of the supplied range.
      */
     uint16_t module_api_version;
-#define version_major module_api_version
-    /**
+#define version_major module_api_version    //主版本号
+    
+    /** 以后会取消
      * version_major/version_minor defines are supplied here for temporary
      * source code compatibility. They will be removed in the next version.
      * ALL clients must convert to the new version format.
@@ -127,7 +133,7 @@ typedef struct hw_module_t {
      * Presently, 0 is the only valid value.
      */
     uint16_t hal_api_version;
-#define version_minor hal_api_version
+#define version_minor hal_api_version   //次版本号
 
     /** Identifier of module */
     const char *id;
@@ -138,9 +144,11 @@ typedef struct hw_module_t {
     /** Author/owner/implementor of the module */
     const char *author;
 
+    //硬件模块方法结构体，里面主要是函数指针
     /** Modules methods */
-    struct hw_module_methods_t* methods;
+    struct hw_module_methods_t* methods;    
 
+    //打开硬件模块库时，得到的句柄
     /** module's dso */
     void* dso;
 
@@ -154,6 +162,7 @@ typedef struct hw_module_t {
 } hw_module_t;
 
 typedef struct hw_module_methods_t {
+    //打开硬件设备
     /** Open a specific device */
     int (*open)(const struct hw_module_t* module, const char* id,
             struct hw_device_t** device);
@@ -161,12 +170,13 @@ typedef struct hw_module_methods_t {
 } hw_module_methods_t;
 
 /**
+    硬件设备信息
  * Every device data structure must begin with hw_device_t
  * followed by module specific public methods and attributes.
  */
 typedef struct hw_device_t {
     /** tag must be initialized to HARDWARE_DEVICE_TAG */
-    uint32_t tag;
+    uint32_t tag;   //设备TAG
 
     /**
      * Version of the module-specific device API. This value is used by
@@ -187,7 +197,7 @@ typedef struct hw_device_t {
     uint32_t version;
 
     /** reference to the module this device belongs to */
-    struct hw_module_t* module;
+    struct hw_module_t* module; //归属的硬件模块
 
     /** padding reserved for future use */
 #ifdef __LP64__
@@ -195,13 +205,14 @@ typedef struct hw_device_t {
 #else
     uint32_t reserved[12];
 #endif
-
+    //关闭设备
     /** Close this device */
     int (*close)(struct hw_device_t* device);
 
 } hw_device_t;
 
 /**
+    模块名字
  * Name of the hal_module_info
  */
 #define HAL_MODULE_INFO_SYM         HMI
@@ -212,6 +223,7 @@ typedef struct hw_device_t {
 #define HAL_MODULE_INFO_SYM_AS_STR  "HMI"
 
 /**
+    根据id获取硬件模块
  * Get the module info associated with a module by id.
  *
  * @return: 0 == success, <0 == error and *module == NULL
