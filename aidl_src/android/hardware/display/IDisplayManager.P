@@ -1,0 +1,17 @@
+out/target/common/obj/JAVA_LIBRARIES/framework_intermediates/src/core/java/android/hardware/display/IDisplayManager.java: \
+  frameworks/base/core/java/android/hardware/display/IDisplayManager.aidl \
+  frameworks/base/core/java/android/hardware/display/IDisplayManagerCallback.aidl \
+  frameworks/base/core/java/android/hardware/display/IVirtualDisplayCallback.aidl \
+  frameworks/base/core/java/android/hardware/display/WifiDisplay.aidl \
+  frameworks/base/core/java/android/hardware/display/WifiDisplayStatus.aidl \
+  frameworks/base/media/java/android/media/projection/IMediaProjection.aidl \
+  frameworks/base/core/java/android/view/DisplayInfo.aidl \
+  frameworks/base/core/java/android/view/Surface.aidl 
+
+frameworks/base/core/java/android/hardware/display/IDisplayManagerCallback.aidl :
+frameworks/base/core/java/android/hardware/display/IVirtualDisplayCallback.aidl :
+frameworks/base/core/java/android/hardware/display/WifiDisplay.aidl :
+frameworks/base/core/java/android/hardware/display/WifiDisplayStatus.aidl :
+frameworks/base/media/java/android/media/projection/IMediaProjection.aidl :
+frameworks/base/core/java/android/view/DisplayInfo.aidl :
+frameworks/base/core/java/android/view/Surface.aidl :

@@ -58,10 +58,12 @@ final class AdapterState extends StateMachine {
     static final int BREDR_STOPPED = 26;
 
     static final int BREDR_START_TIMEOUT = 100;
+    //使能蓝牙超时
     static final int ENABLE_TIMEOUT = 101;
     static final int DISABLE_TIMEOUT = 103;
     static final int BLE_STOP_TIMEOUT = 104;
     static final int SET_SCAN_MODE_TIMEOUT = 105;
+    //启动蓝牙超时
     static final int BLE_START_TIMEOUT = 106;
     static final int BREDR_STOP_TIMEOUT = 107;
 
@@ -369,9 +371,11 @@ final class AdapterState extends StateMachine {
                     //Enable,调用底层方法，开启蓝牙
                     if (!adapterService.enableNative()) {
                         errorLog("Error while turning Bluetooth on");
+                        //开启失败，状态通知，切换到OffState状态
                         notifyAdapterStateChange(BluetoothAdapter.STATE_OFF);
                         transitionTo(mOffState);
                     } else {
+                        //超时检测
                         sendMessageDelayed(ENABLE_TIMEOUT, ENABLE_TIMEOUT_DELAY);
                     }
                     break;

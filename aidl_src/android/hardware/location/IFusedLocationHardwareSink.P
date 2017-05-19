@@ -1,0 +1,5 @@
+out/target/common/obj/JAVA_LIBRARIES/framework_intermediates/src/core/java/android/hardware/location/IFusedLocationHardwareSink.java: \
+  frameworks/base/core/java/android/hardware/location/IFusedLocationHardwareSink.aidl \
+  frameworks/base/location/java/android/location/Location.aidl 
+
+frameworks/base/location/java/android/location/Location.aidl :

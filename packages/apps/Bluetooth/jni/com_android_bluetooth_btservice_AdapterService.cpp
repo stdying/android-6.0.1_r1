@@ -702,6 +702,7 @@ static bool cleanupNative(JNIEnv *env, jobject obj) {
     return JNI_TRUE;
 }
 
+//蓝牙使能
 static jboolean enableNative(JNIEnv* env, jobject obj) {
     ALOGV("%s:",__FUNCTION__);
 

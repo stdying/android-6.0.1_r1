@@ -1,0 +1,17 @@
+out/target/common/obj/JAVA_LIBRARIES/framework_intermediates/src/core/java/android/hardware/input/IInputManager.java: \
+  frameworks/base/core/java/android/hardware/input/IInputManager.aidl \
+  frameworks/base/core/java/android/hardware/input/InputDeviceIdentifier.aidl \
+  frameworks/base/core/java/android/hardware/input/KeyboardLayout.aidl \
+  frameworks/base/core/java/android/hardware/input/IInputDevicesChangedListener.aidl \
+  frameworks/base/core/java/android/hardware/input/ITabletModeChangedListener.aidl \
+  frameworks/base/core/java/android/hardware/input/TouchCalibration.aidl \
+  frameworks/base/core/java/android/view/InputDevice.aidl \
+  frameworks/base/core/java/android/view/InputEvent.aidl 
+
+frameworks/base/core/java/android/hardware/input/InputDeviceIdentifier.aidl :
+frameworks/base/core/java/android/hardware/input/KeyboardLayout.aidl :
+frameworks/base/core/java/android/hardware/input/IInputDevicesChangedListener.aidl :
+frameworks/base/core/java/android/hardware/input/ITabletModeChangedListener.aidl :
+frameworks/base/core/java/android/hardware/input/TouchCalibration.aidl :
+frameworks/base/core/java/android/view/InputDevice.aidl :
+frameworks/base/core/java/android/view/InputEvent.aidl :

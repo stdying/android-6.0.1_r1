@@ -2243,6 +2243,7 @@
       <sourceFolder url="file://$MODULE_DIR$/out/target/common/R" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/out" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/aidl_src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/hardware" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/.repo" />
       <excludeFolder url="file://$MODULE_DIR$/abi" />
       <excludeFolder url="file://$MODULE_DIR$/art" />
@@ -2261,7 +2262,6 @@
       <excludeFolder url="file://$MODULE_DIR$/external/jdiff" />
       <excludeFolder url="file://$MODULE_DIR$/external/webkit" />
       <excludeFolder url="file://$MODULE_DIR$/frameworks/base/docs" />
-      <excludeFolder url="file://$MODULE_DIR$/hardware" />
       <excludeFolder url="file://$MODULE_DIR$/libcore" />
       <excludeFolder url="file://$MODULE_DIR$/libnativehelper" />
       <excludeFolder url="file://$MODULE_DIR$/ndk" />

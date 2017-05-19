@@ -300,6 +300,7 @@ public class AdapterService extends Service {
             Integer prevState = mProfileServicesState.get(serviceName);
             //第一次进入，prevState状态为OFF
             if (prevState != null && prevState != state) {
+                //存储新状态
                 mProfileServicesState.put(serviceName,state);
                 doUpdate=true;
             }

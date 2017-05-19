@@ -160,4 +160,46 @@ OffState在processMessage中将状态转换给mPendingCommandState，并发送�
 在BleOnProcessStart()方法中，会批量启动profile service；比如HeadsetService，HeadsetService继承
 ProfileService，在onStartCommand()方法中调用doStart(Intent intent),接着调用notifyProfileServiceStateChanged(BluetoothAdapter.STATE_ON)，通知服务状态改变；
 调用mAdapterService.onProfileServiceStateChanged(getClass().getName(), state);在AdapterService的handler中处理MESSAGE_PROFILE_SERVICE_STATE_CHANGED状态，
-向状态机发送AdapterState.BLE_STARTED，在PendingCommandState
+向状态机发送AdapterState.BLE_STARTED，在PendingCommandState中会调用enableNative jni方法
+
+### jni层
+
+enableNative方法位于com_android_bluetooth_btservice_AdapterService.cpp文件中。
+文件目录 packages/apps/Bluetooth/jni 
+```
+//蓝牙使能
+static jboolean enableNative(JNIEnv* env, jobject obj) {
+    ALOGV("%s:",__FUNCTION__);
+
+    jboolean result = JNI_FALSE;
+    if (!sBluetoothInterface) return result;
+
+    int ret = sBluetoothInterface->enable();
+    result = (ret == BT_STATUS_SUCCESS || ret == BT_STATUS_DONE) ? JNI_TRUE : JNI_FALSE;
+    return result;
+}
+```
+sBluetoothInterface->enable() 方法定义在bluetooth.h 中
+
+enable() 调用 stack_manager_get_interface()->start_up_stack_async();异步启动蓝牙
+
+```
+//异步调用
+static void start_up_stack_async(void) {
+  thread_post(management_thread, event_start_up_stack, NULL);
+}
+```
+event_start_up_stack 方法中
+
+
+??流程 http://blog.csdn.net/ljp1205/article/details/53869566
+BTIF 接口层，与Android之间的接口
+BTA 应用层
+BTM Bluedroid管理层
+BTU
+HCI 是指Host Control Interface ，主机与BT控制器之间的接口
+
+BTIF -> BTA -> BTU -> HCI
+
+返回
+HCI -> BTU -> BTA -> BTIF 

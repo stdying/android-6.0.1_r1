@@ -1,0 +1,13 @@
+out/target/common/obj/JAVA_LIBRARIES/framework_intermediates/src/core/java/android/hardware/camera2/ICameraDeviceUser.java: \
+  frameworks/base/core/java/android/hardware/camera2/ICameraDeviceUser.aidl \
+  frameworks/base/core/java/android/hardware/camera2/CaptureRequest.aidl \
+  frameworks/base/core/java/android/hardware/camera2/impl/CameraMetadataNative.aidl \
+  frameworks/base/core/java/android/hardware/camera2/params/OutputConfiguration.aidl \
+  frameworks/base/core/java/android/hardware/camera2/utils/LongParcelable.aidl \
+  frameworks/base/core/java/android/view/Surface.aidl 
+
+frameworks/base/core/java/android/hardware/camera2/CaptureRequest.aidl :
+frameworks/base/core/java/android/hardware/camera2/impl/CameraMetadataNative.aidl :
+frameworks/base/core/java/android/hardware/camera2/params/OutputConfiguration.aidl :
+frameworks/base/core/java/android/hardware/camera2/utils/LongParcelable.aidl :
+frameworks/base/core/java/android/view/Surface.aidl :

@@ -1,0 +1,19 @@
+out/target/common/obj/JAVA_LIBRARIES/framework_intermediates/src/core/java/android/hardware/ICameraService.java: \
+  frameworks/base/core/java/android/hardware/ICameraService.aidl \
+  frameworks/base/core/java/android/hardware/ICamera.aidl \
+  frameworks/base/core/java/android/hardware/ICameraClient.aidl \
+  frameworks/base/core/java/android/hardware/camera2/ICameraDeviceUser.aidl \
+  frameworks/base/core/java/android/hardware/camera2/ICameraDeviceCallbacks.aidl \
+  frameworks/base/core/java/android/hardware/camera2/impl/CameraMetadataNative.aidl \
+  frameworks/base/core/java/android/hardware/camera2/utils/BinderHolder.aidl \
+  frameworks/base/core/java/android/hardware/ICameraServiceListener.aidl \
+  frameworks/base/core/java/android/hardware/CameraInfo.aidl 
+
+frameworks/base/core/java/android/hardware/ICamera.aidl :
+frameworks/base/core/java/android/hardware/ICameraClient.aidl :
+frameworks/base/core/java/android/hardware/camera2/ICameraDeviceUser.aidl :
+frameworks/base/core/java/android/hardware/camera2/ICameraDeviceCallbacks.aidl :
+frameworks/base/core/java/android/hardware/camera2/impl/CameraMetadataNative.aidl :
+frameworks/base/core/java/android/hardware/camera2/utils/BinderHolder.aidl :
+frameworks/base/core/java/android/hardware/ICameraServiceListener.aidl :
+frameworks/base/core/java/android/hardware/CameraInfo.aidl :
