@@ -4,6 +4,5 @@ frameworks/
 packages/  
 android.iml  
 android.iws  
-hardware/    
-paper/     
+hardware/        
 system/
