@@ -1,0 +1,9 @@
+aidl_src/
+android.ipr  
+frameworks/  
+packages/  
+android.iml  
+android.iws  
+hardware/    
+paper/     
+system/
