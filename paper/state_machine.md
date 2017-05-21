@@ -12,7 +12,7 @@ Android 系统使用状态机处理不同的状态，可以避免分支语句导
 
 #### 使用类
 
-![](img/state_machine.svg)
+![](img/state_machine.jpg)
 
 - IState.java 状态接口，每个状态必须实现的接口
     - void enter() 状态进入时调用
