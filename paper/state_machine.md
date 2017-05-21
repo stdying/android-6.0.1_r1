@@ -22,7 +22,7 @@ Android 系统使用状态机处理不同的状态，可以避免分支语句导
 - StateInfo.java 状态节点信息，类似链表节点
 - StateMachine.java 定义状态层次关系以及状态转换。根据实际需求继承StateMachine，实现自己的状态管理。
 
-> 状态机重点时StateMachine类
+> 状态机重点时SmHandler类
 
 #### StateMachine
 
