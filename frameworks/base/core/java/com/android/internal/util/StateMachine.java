@@ -826,7 +826,7 @@ public class StateMachine {
         /**
          * Do any transitions
          *
-         * performTransitions来检查状态切换
+         * performTransitions来检查状态切换，为状态数跟新
          *
          * @param msgProcessedState is the state that processed the message
          */
@@ -873,9 +873,11 @@ public class StateMachine {
                      * invoke the exit methods then the enter methods.
                      *
                      * 获取从destState到还没有active的父节点，
-                     * mTempStateStack存储是新的终止节点和旧终止节点的公共节点与新的终止节点的一段状态树
+                     * mTempStateStack存储是新的终止节点和
+                     * 旧终止节点的公共节点与新的终止节点的一段状态树
                      */
                     StateInfo commonStateInfo = setupTempStateStackWithStatesToEnter(destState);
+                    //被移除栈中的状态，将这些状态状态设为false，并调用eixt方法
                     invokeExitMethods(commonStateInfo);
 
                     //stateStackEnteringIndex 需要调用enter方法的状态在mStateStack中位置
@@ -977,7 +979,7 @@ public class StateMachine {
             //根据状态栈的最大节点数，创建mStateStack，mTempStateStack状态栈
             mStateStack = new StateInfo[maxDepth];
             mTempStateStack = new StateInfo[maxDepth];
-            //将状态路径存入状态栈
+            //根据当前节点和最大节点数，创建状态栈
             setupInitialStateStack();
 
             /** Sending SM_INIT_CMD message to invoke enter methods asynchronously */
@@ -1019,8 +1021,10 @@ public class StateMachine {
                     if (curStateInfo == null) {
                         /**
                          * No parents left so it's not handled
+                         * 所有的状态都没有处理
                          */
                         mSm.unhandledMessage(msg);
+                        //unhandledMessage是空函数，由具体状态机实现方法
                         break;
                     }
                     if (mDbg) {
@@ -1089,12 +1093,15 @@ public class StateMachine {
          *
          * 将temporary stack栈中数据反序添加到state stack中
          *
+         * 在mStateStack已有节点的基础上添加新节点，添加完成当前节点位于栈顶
+         *
          * @return index into mStateStack where entering needs to start
          */
         private final int moveTempStateStackToStateStack() {
             //startingIndex 表示mStateStack接受新状态的其实位置，
             //不是每次都从0开始
             int startingIndex = mStateStackTopIndex + 1;
+            //mTempStateStack个数
             int i = mTempStateStackCount - 1;
             int j = startingIndex;
             while (i >= 0) {
@@ -1167,7 +1174,7 @@ public class StateMachine {
             // Empty the StateStack,清空mStateStack
             mStateStackTopIndex = -1;
             //将temporary stack栈中数据反序添冲到state stack中
-            //这是根节点位于栈顶,当前节点位于栈底
+            //这是根节点位于栈底(index=0),当前节点位于栈顶
             moveTempStateStackToStateStack();
         }
 
@@ -1202,22 +1209,28 @@ public class StateMachine {
             StateInfo parentStateInfo = null;
             if (parent != null) {
                 parentStateInfo = mStateInfo.get(parent);
+                //存在父节点，但不在状态树中，添加进来
                 if (parentStateInfo == null) {
                     // Recursively add our parent as it's not been added yet.
+                    //此处为递归调用
                     parentStateInfo = addState(parent, null);
                 }
             }
+            //状态不在状态树中，添加进来
             StateInfo stateInfo = mStateInfo.get(state);
             if (stateInfo == null) {
+                //将新state包装成StateInfo
                 stateInfo = new StateInfo();
                 mStateInfo.put(state, stateInfo);
             }
 
             // Validate that we aren't adding the same state in two different hierarchies.
+            //每个状态只能有一个父状态
             if ((stateInfo.parentStateInfo != null)
                     && (stateInfo.parentStateInfo != parentStateInfo)) {
                 throw new RuntimeException("state already added");
             }
+            //认亲
             stateInfo.state = state;
             stateInfo.parentStateInfo = parentStateInfo;
             stateInfo.active = false;
