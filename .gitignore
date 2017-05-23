@@ -1,5 +1,6 @@
 .classpath
 .*~
+android.i*
 .repo/
 co.sh
 docs/
