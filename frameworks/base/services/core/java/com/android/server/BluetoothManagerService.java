@@ -638,6 +638,7 @@ class BluetoothManagerService extends IBluetoothManager.Stub {
             mQuietEnableExternal = false;
             mEnableExternal = true;
             // waive WRITE_SECURE_SETTINGS permission check
+            //通过handler集中处理消息
             sendEnableMsg(false);
         }
         if (DBG) Log.d(TAG, "enable returning");
