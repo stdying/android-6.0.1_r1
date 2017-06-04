@@ -475,16 +475,20 @@ static int close_bluetooth_stack(struct hw_device_t* device)
 }
 
 static int open_bluetooth_stack(const struct hw_module_t *module, UNUSED_ATTR char const *name, struct hw_device_t **abstraction) {
+  //给bluetooth_device_t赋值
   static bluetooth_device_t device = {
-    .common = {
+  	//common变量赋值
+    .common = {		
       .tag = HARDWARE_DEVICE_TAG,
       .version = 0,
       .close = close_bluetooth_stack,
     },
+    //获取蓝牙模块接口
     .get_bluetooth_interface = bluetooth__get_bluetooth_interface
   };
 
   device.common.module = (struct hw_module_t *)module;
+  //将bluetooth_device_t指针强制转换为hw_device_t指针赋值给abstraction
   *abstraction = (struct hw_device_t *)&device;
   return 0;
 }

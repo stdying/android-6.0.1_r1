@@ -640,14 +640,17 @@ static void classInitNative(JNIEnv* env, jclass clazz) {
     property_get("bluetooth.mock_stack", value, "");
 
     const char *id = (strcmp(value, "1")? BT_STACK_MODULE_ID : BT_STACK_TEST_MODULE_ID);
-
+   //获取蓝牙模块hw_module_t指针
     err = hw_get_module(id, (hw_module_t const**)&module);
 
     if (err == 0) {
         hw_device_t* abstraction;
+		//调用open方法，获取蓝牙设备hw_device_t指针 
         err = module->methods->open(module, id, &abstraction);
         if (err == 0) {
+			//蓝牙设备bluetooth_device_t 和 bluetooth_module_t 定义成同一个值
             bluetooth_module_t* btStack = (bluetooth_module_t *)abstraction;
+			//获取蓝牙模块interface接口，通过sBluetoothInterface操作蓝牙设备
             sBluetoothInterface = btStack->get_bluetooth_interface();
         } else {
            ALOGE("Error while opening Bluetooth library");

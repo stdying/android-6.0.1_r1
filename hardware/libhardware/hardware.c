@@ -76,6 +76,7 @@ static int load(const char *id,
      * dlopen returns. Since RTLD_GLOBAL is not or'd in with
      * RTLD_NOW the external symbols will not be global
      */
+     //调用dlopen打开path定义的目标共享库，得到库文件的句柄handle
     handle = dlopen(path, RTLD_NOW);
     if (handle == NULL) {
         char const *err_str = dlerror();
@@ -86,6 +87,7 @@ static int load(const char *id,
 
     /* Get the address of the struct hal_module_info. */
     const char *sym = HAL_MODULE_INFO_SYM_AS_STR;
+	//调用dlsym获取符号HAL_MODULE_INFO_SYM_AS_STR的地址，赋值给hmi
     hmi = (struct hw_module_t *)dlsym(handle, sym);
     if (hmi == NULL) {
         ALOGE("load: couldn't find symbol %s", sym);
@@ -99,7 +101,7 @@ static int load(const char *id,
         status = -EINVAL;
         goto done;
     }
-
+	//保存共享库句柄
     hmi->dso = handle;
 
     /* success */
@@ -117,6 +119,7 @@ static int load(const char *id,
                 id, path, *pHmi, handle);
     }
 
+	//返回得到的hw_module_t结构体的指针
     *pHmi = hmi;
 
     return status;
@@ -169,6 +172,7 @@ int hw_get_module_by_class(const char *class_id, const char *inst,
      * We also assume that dlopen() is thread-safe.
      */
 
+	//查询特定属性名称，获取可能的属性值
     /* First try a property specific to the class and possibly instance */
     snprintf(prop_name, sizeof(prop_name), "ro.hardware.%s", name);
     if (property_get(prop_name, prop, NULL) > 0) {  //??获取属相
@@ -177,12 +181,13 @@ int hw_get_module_by_class(const char *class_id, const char *inst,
         }
     }
 
-    //在hal层搜索动态共享库的方式
+    //遍历variant_keys获取属性值
     /* Loop through the configuration variants looking for a module */
     for (i=0 ; i<HAL_VARIANT_KEYS_COUNT; i++) {
         if (property_get(variant_keys[i], prop, NULL) == 0) {
             continue;
         }
+		//查询目标共享库是否存在
         if (hw_module_exists(path, sizeof(path), name, prop) == 0) {
             goto found;
         }
