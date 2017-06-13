@@ -230,9 +230,10 @@ int get_remote_services(bt_bdaddr_t *remote_addr)
     return btif_dm_get_remote_services(remote_addr);
 }
 
+//蓝牙扫描
 static int start_discovery(void)
 {
-    /* sanity check */
+    /* sanity check */ //完整性检查
     if (interface_ready() == FALSE)
         return BT_STATUS_NOT_READY;
 

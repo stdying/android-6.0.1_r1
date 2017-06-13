@@ -147,9 +147,15 @@ public final class LocalBluetoothAdapter {
         return mAdapter.setScanMode(mode, duration);
     }
 
+    /**
+     * 如果已经扫描则跳过;
+     *
+     * @param force
+     */
     public void startScanning(boolean force) {
         // Only start if we're not already scanning
         if (!mAdapter.isDiscovering()) {
+            //如果不是强制扫描，在SCAN_EXPIRATION_MS间隔内，之扫描一次
             if (!force) {
                 // Don't scan more than frequently than SCAN_EXPIRATION_MS,
                 // unless forced
@@ -158,12 +164,13 @@ public final class LocalBluetoothAdapter {
                 }
 
                 // If we are playing music, don't scan unless forced.
+                //播放音乐时，不扫描
                 A2dpProfile a2dp = mProfileManager.getA2dpProfile();
                 if (a2dp != null && a2dp.isA2dpPlaying()) {
                     return;
                 }
             }
-
+            //开始扫描
             if (mAdapter.startDiscovery()) {
                 mLastScan = System.currentTimeMillis();
             }

@@ -2095,7 +2095,8 @@ static void bte_search_devices_evt(tBTA_DM_SEARCH_EVT event, tBTA_DM_SEARCH *p_d
     /* if remote name is available in EIR, set teh flag so that stack doesnt trigger RNR */
     if (event == BTA_DM_INQ_RES_EVT)
         p_data->inq_res.remt_name_not_required = check_eir_remote_name(p_data, NULL, NULL);
-
+    
+    //TODO ??btif_transfer_context 意思
     btif_transfer_context (btif_dm_search_devices_evt , (UINT16) event, (void *)p_data, param_len,
         (param_len > sizeof(tBTA_DM_SEARCH)) ? search_devices_copy_cb : NULL);
 }

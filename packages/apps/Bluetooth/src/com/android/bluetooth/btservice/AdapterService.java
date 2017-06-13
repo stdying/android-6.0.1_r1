@@ -720,6 +720,7 @@ public class AdapterService extends Service {
 
     /**
      * Handlers for incoming service calls
+     * 处理服务调用
      */
     private AdapterServiceBinder mBinder;
 
@@ -890,6 +891,7 @@ public class AdapterService extends Service {
             return service.setDiscoverableTimeout(timeout);
         }
 
+        //蓝牙扫描
         public boolean startDiscovery() {
             if (!Utils.checkCaller()) {
                 Log.w(TAG, "startDiscovery() - Not allowed for non-active user");
@@ -1410,7 +1412,7 @@ public class AdapterService extends Service {
      boolean startDiscovery() {
         enforceCallingOrSelfPermission(BLUETOOTH_ADMIN_PERM,
                                        "Need BLUETOOTH ADMIN permission");
-
+        //进入JNI方法
         return startDiscoveryNative();
     }
 

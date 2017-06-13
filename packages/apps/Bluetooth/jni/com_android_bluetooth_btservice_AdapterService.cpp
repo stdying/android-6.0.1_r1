@@ -46,6 +46,7 @@ static jmethodID method_acquireWakeLock;
 static jmethodID method_releaseWakeLock;
 static jmethodID method_energyInfo;
 
+//HAL 定义蓝牙接口
 static const bt_interface_t *sBluetoothInterface = NULL;
 static const btsock_interface_t *sBluetoothSocketInterface = NULL;
 static JNIEnv *callbackEnv = NULL;
@@ -250,7 +251,7 @@ Fail:
     ALOGE("Error while allocation byte array in %s", __FUNCTION__);
 }
 
-
+//蓝牙扫描设备时，回调函数
 static void device_found_callback(int num_properties, bt_property_t *properties) {
     jbyteArray addr = NULL;
     int addr_index;
@@ -732,12 +733,13 @@ static jboolean disableNative(JNIEnv* env, jobject obj) {
     return result;
 }
 
+//蓝牙扫描
 static jboolean startDiscoveryNative(JNIEnv* env, jobject obj) {
     ALOGV("%s:",__FUNCTION__);
 
     jboolean result = JNI_FALSE;
     if (!sBluetoothInterface) return result;
-
+    
     int ret = sBluetoothInterface->start_discovery();
     result = (ret == BT_STATUS_SUCCESS) ? JNI_TRUE : JNI_FALSE;
     return result;

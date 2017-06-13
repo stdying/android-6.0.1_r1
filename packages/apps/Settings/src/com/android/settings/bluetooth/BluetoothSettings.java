@@ -78,7 +78,9 @@ public final class BluetoothSettings extends DeviceListPreferenceFragment implem
 
     private BluetoothEnabler mBluetoothEnabler;
 
+    //已配对的设备
     private PreferenceGroup mPairedDevicesCategory;
+    //可用设备
     private PreferenceGroup mAvailableDevicesCategory;
     private boolean mAvailableDevicesCategoryIsPresent;
 
@@ -225,8 +227,10 @@ public final class BluetoothSettings extends DeviceListPreferenceFragment implem
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case MENU_ID_SCAN:
+                //蓝牙已经开启
                 if (mLocalAdapter.getBluetoothState() == BluetoothAdapter.STATE_ON) {
                     MetricsLogger.action(getActivity(), MetricsLogger.ACTION_BLUETOOTH_SCAN);
+                    //开始扫描
                     startScanning();
                 }
                 return true;
@@ -251,6 +255,7 @@ public final class BluetoothSettings extends DeviceListPreferenceFragment implem
             return;
         }
 
+        //添加可以设备列表
         if (!mAvailableDevicesCategoryIsPresent) {
             getPreferenceScreen().addPreference(mAvailableDevicesCategory);
             mAvailableDevicesCategoryIsPresent = true;
@@ -261,6 +266,7 @@ public final class BluetoothSettings extends DeviceListPreferenceFragment implem
             removeAllDevices();
         }
 
+        //清空已扫描的设备中，没有绑定的设备
         mLocalManager.getCachedDeviceManager().clearNonBondedDevices();
         mAvailableDevicesCategory.removeAll();
         mInitialScanStarted = true;
