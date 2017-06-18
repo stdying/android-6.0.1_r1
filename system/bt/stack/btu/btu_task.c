@@ -92,9 +92,11 @@ tBTU_CB  btu_cb;
 #endif
 
 // Communication queue between btu_task and bta.
+//btu_task和bta 关联队列
 extern fixed_queue_t *btu_bta_msg_queue;
 
 // Communication queue between btu_task and hci.
+//btu_task 和hci 关联队列
 extern fixed_queue_t *btu_hci_msg_queue;
 
 // General timer queue.
@@ -268,7 +270,7 @@ void btu_task_start_up(UNUSED_ATTR void *context) {
 
 
   /* Initialize the mandatory core stack control blocks
-    初始化核心堆栈控制块,主要是数值的初始化
+    初始化核心堆栈控制块
      (BTU, BTM, L2CAP, and SDP)
    */
   btu_init_core();
@@ -292,7 +294,11 @@ void btu_task_start_up(UNUSED_ATTR void *context) {
 
   //btu_bta_msg_queue 消息队列
   //bt_workqueue_thread 工作线程
-  //btu_bta_msg_ready 指定消息处理，btu_hci_msg_ready 类似
+  
+  //btu_bta_msg_ready 消息处理方法，
+  //发送到btu_bta_msg_queue消息，会被btu_bta_msg_ready读取
+  
+  //btu_hci_msg_ready 消息处理方法
   
   fixed_queue_register_dequeue(btu_bta_msg_queue,
       thread_get_reactor(bt_workqueue_thread),

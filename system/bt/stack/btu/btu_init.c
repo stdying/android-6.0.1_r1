@@ -141,7 +141,7 @@ void btu_free_core(void)
 ** Function         BTU_StartUp
 **
 ** Description      Initializes the BTU control block.
-**
+**					在创建任何任务前， 初始化BUT控制块
 **                  NOTE: Must be called before creating any tasks
 **                      (RPC, BTU, HCIT, APPL, etc.)
 **
@@ -154,6 +154,7 @@ void BTU_StartUp(void)
     memset (&btu_cb, 0, sizeof (tBTU_CB));
     btu_cb.trace_level = HCI_INITIAL_TRACE_LEVEL;
 
+	//初始化btu_task and bta之间关联队列
     btu_bta_msg_queue = fixed_queue_new(SIZE_MAX);
     if (btu_bta_msg_queue == NULL)
         goto error_exit;
@@ -201,6 +202,7 @@ void BTU_StartUp(void)
     thread_set_priority(bt_workqueue_thread, BTU_TASK_THREAD_PRIORITY);
 
     // Continue startup on bt workqueue thread.
+    //将队列和相关线程关联起来，btu_task_start_up
     thread_post(bt_workqueue_thread, btu_task_start_up, NULL);
     return;
 

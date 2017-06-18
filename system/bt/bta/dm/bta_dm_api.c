@@ -37,13 +37,13 @@
 *****************************************************************************/
 
 static const tBTA_SYS_REG bta_dm_reg =
-{
+{	//状态机处理消息
     bta_dm_sm_execute,
     bta_dm_sm_disable
 };
 
 static const tBTA_SYS_REG bta_dm_search_reg =
-{
+{	//状态机处理消息
     bta_dm_search_sm_execute,
     bta_dm_search_sm_disable
 };

@@ -515,11 +515,13 @@ void bta_sys_event(BT_HDR *p_msg)
     APPL_TRACE_EVENT("BTA got event 0x%x", p_msg->event);
 
     /* get subsystem id from event */
+	//获取对应的事件id
     id = (UINT8) (p_msg->event >> 8);
 
     /* verify id and call subsystem event handler */
     if ((id < BTA_ID_MAX) && (bta_sys_cb.reg[id] != NULL))
     {
+    	//交由事件id的回调函数处理该事件
         freebuf = (*bta_sys_cb.reg[id]->evt_hdlr)(p_msg);
     }
     else
@@ -528,7 +530,7 @@ void bta_sys_event(BT_HDR *p_msg)
     }
 
     if (freebuf)
-    {
+    {	//释放内存
         GKI_freebuf(p_msg);
     }
 
