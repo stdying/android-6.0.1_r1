@@ -654,8 +654,10 @@ static void btif_dm_cb_hid_remote_name(tBTM_REMOTE_DEV_NAME *p_remote_name)
 static void btif_dm_cb_create_bond(bt_bdaddr_t *bd_addr, tBTA_TRANSPORT transport)
 {
     BOOLEAN is_hid = check_cod(bd_addr, COD_HID_POINTING);
+	//里面会向上层APP发送绑定状态正在改变
     bond_state_changed(BT_STATUS_SUCCESS, bd_addr, BT_BOND_STATE_BONDING);
 
+//BLE低功耗
 #if BLE_INCLUDED == TRUE
     int device_type;
     int addr_type;
@@ -676,6 +678,7 @@ static void btif_dm_cb_create_bond(bt_bdaddr_t *bd_addr, tBTA_TRANSPORT transpor
        (btif_storage_get_remote_addr_type(bd_addr, &addr_type) == BT_STATUS_SUCCESS) &&
        (device_type & BT_DEVICE_TYPE_BLE) == BT_DEVICE_TYPE_BLE) || (transport == BT_TRANSPORT_LE))
     {
+    	//保存BLE设备
         BTA_DmAddBleDevice(bd_addr->address, addr_type, device_type);
     }
 #endif
@@ -2307,6 +2310,7 @@ bt_status_t btif_dm_create_bond(const bt_bdaddr_t *bd_addr, int transport)
     if (pairing_cb.state != BT_BOND_STATE_NONE)
         return BT_STATUS_BUSY;
 
+	//任务在btif task里面处理，真正处理在方法btif_dm_generic_evt中
     btif_transfer_context(btif_dm_generic_evt, BTIF_DM_CB_CREATE_BOND,
                           (char *)&create_bond_cb, sizeof(btif_dm_create_bond_cb_t), NULL);
 

@@ -756,6 +756,7 @@ static jboolean cancelDiscoveryNative(JNIEnv* env, jobject obj) {
     return result;
 }
 
+//蓝牙绑定
 static jboolean createBondNative(JNIEnv* env, jobject obj, jbyteArray address, jint transport) {
     ALOGV("%s:",__FUNCTION__);
 
@@ -769,7 +770,7 @@ static jboolean createBondNative(JNIEnv* env, jobject obj, jbyteArray address, j
         jniThrowIOException(env, EINVAL);
         return result;
     }
-
+	//调用create_bond
     int ret = sBluetoothInterface->create_bond((bt_bdaddr_t *)addr, transport);
     env->ReleaseByteArrayElements(address, addr, 0);
     result = (ret == BT_STATUS_SUCCESS) ? JNI_TRUE : JNI_FALSE;
