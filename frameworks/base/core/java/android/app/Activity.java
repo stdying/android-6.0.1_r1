@@ -4794,6 +4794,7 @@ public class Activity extends ContextThemeWrapper
 
     void makeVisible() {
         if (!mWindowAdded) {
+            //将DecorView添加到WindowManager
             ViewManager wm = getWindowManager();
             wm.addView(mDecor, getWindow().getAttributes());
             mWindowAdded = true;
@@ -6188,8 +6189,9 @@ public class Activity extends ContextThemeWrapper
         attachBaseContext(context);
 
         mFragments.attachHost(null /*parent*/);
-
+        //创建PhoneWindow，用于视图加载
         mWindow = new PhoneWindow(this);
+        //将window事件通过回调接口，传递到Activity来处理
         mWindow.setCallback(this);
         mWindow.setOnWindowDismissedCallback(this);
         mWindow.getLayoutInflater().setPrivateFactory(this);
@@ -6223,6 +6225,7 @@ public class Activity extends ContextThemeWrapper
             }
         }
 
+        //创建WindowManger
         mWindow.setWindowManager(
                 (WindowManager)context.getSystemService(Context.WINDOW_SERVICE),
                 mToken, mComponent.flattenToString(),

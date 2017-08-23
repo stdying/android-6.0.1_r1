@@ -140,6 +140,7 @@ public final class ViewRootImpl implements ViewParent,
             = new ArrayList<ComponentCallbacks>();
 
     final Context mContext;
+    //IWindowSessin 是binder
     final IWindowSession mWindowSession;
     final Display mDisplay;
     final DisplayManager mDisplayManager;
@@ -528,6 +529,7 @@ public final class ViewRootImpl implements ViewParent,
                     mOrigWindowType = mWindowAttributes.type;
                     mAttachInfo.mRecomputeGlobalAttributes = true;
                     collectViewAttributes();
+                    //通过IPC，添加window交给WindowMangerServer
                     res = mWindowSession.addToDisplay(mWindow, mSeq, mWindowAttributes,
                             getHostVisibility(), mDisplay.getDisplayId(),
                             mAttachInfo.mContentInsets, mAttachInfo.mStableInsets,

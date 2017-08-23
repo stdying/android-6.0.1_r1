@@ -82,6 +82,7 @@ public final class WindowManagerImpl implements WindowManager {
     @Override
     public void addView(@NonNull View view, @NonNull ViewGroup.LayoutParams params) {
         applyDefaultToken(params);
+        //add view 里面创建ViewRootImpl
         mGlobal.addView(view, params, mDisplay, mParentWindow);
     }
 

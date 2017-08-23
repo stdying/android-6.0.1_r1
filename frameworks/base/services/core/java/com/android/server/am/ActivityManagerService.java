@@ -3845,6 +3845,7 @@ public final class ActivityManagerService extends ActivityManagerNative
         }
     }
 
+    //通过Binder远程调用
     @Override
     public final int startActivity(IApplicationThread caller, String callingPackage,
             Intent intent, String resolvedType, IBinder resultTo, String resultWho, int requestCode,

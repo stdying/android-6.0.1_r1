@@ -938,6 +938,7 @@ public final class ActivityStackSupervisor implements DisplayListener {
         // Don't modify the client's object!
         intent = new Intent(intent);
 
+        //获取启动activity信息
         // Collect information about the target of the Intent.
         ActivityInfo aInfo =
                 resolveActivity(intent, resolvedType, startFlags, profilerInfo, userId);
@@ -1042,6 +1043,7 @@ public final class ActivityStackSupervisor implements DisplayListener {
                 }
             }
 
+            //进一步处理
             int res = startActivityLocked(caller, intent, resolvedType, aInfo,
                     voiceSession, voiceInteractor, resultTo, resultWho,
                     requestCode, callingPid, callingUid, callingPackage,
@@ -1405,7 +1407,7 @@ public final class ActivityStackSupervisor implements DisplayListener {
             boolean ignoreTargetSecurity, boolean componentSpecified, ActivityRecord[] outActivity,
             ActivityContainer container, TaskRecord inTask) {
         int err = ActivityManager.START_SUCCESS;
-
+        //调用者信息，如launcher
         ProcessRecord callerApp = null;
         if (caller != null) {
             callerApp = mService.getRecordForAppLocked(caller);
@@ -1633,6 +1635,7 @@ public final class ActivityStackSupervisor implements DisplayListener {
             return ActivityManager.START_SUCCESS;
         }
 
+        //即将启动activity信息
         ActivityRecord r = new ActivityRecord(mService, callerApp, callingUid, callingPackage,
                 intent, resolvedType, aInfo, mService.mConfiguration, resultRecord, resultWho,
                 requestCode, componentSpecified, voiceSession != null, this, container, options);
@@ -1672,6 +1675,7 @@ public final class ActivityStackSupervisor implements DisplayListener {
 
         doPendingActivityLaunchesLocked(false);
 
+        //进一步处理
         err = startActivityUncheckedLocked(r, sourceRecord, voiceSession, voiceInteractor,
                 startFlags, true, options, inTask);
 
@@ -1840,10 +1844,11 @@ public final class ActivityStackSupervisor implements DisplayListener {
             inTask = null;
         }
 
+        //启动类型
         final boolean launchSingleTop = r.launchMode == ActivityInfo.LAUNCH_SINGLE_TOP;
         final boolean launchSingleInstance = r.launchMode == ActivityInfo.LAUNCH_SINGLE_INSTANCE;
         final boolean launchSingleTask = r.launchMode == ActivityInfo.LAUNCH_SINGLE_TASK;
-
+        //获取intent启动类型
         int launchFlags = intent.getFlags();
         if ((launchFlags & Intent.FLAG_ACTIVITY_NEW_DOCUMENT) != 0 &&
                 (launchSingleInstance || launchSingleTask)) {
