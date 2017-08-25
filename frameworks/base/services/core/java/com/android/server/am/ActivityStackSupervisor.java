@@ -622,6 +622,7 @@ public final class ActivityStackSupervisor implements DisplayListener {
                     if (hr.app == null && app.uid == hr.info.applicationInfo.uid
                             && processName.equals(hr.processName)) {
                         try {
+                            //启动Activity
                             if (realStartActivityLocked(hr, app, true, true)) {
                                 didSomething = true;
                             }
@@ -922,6 +923,7 @@ public final class ActivityStackSupervisor implements DisplayListener {
         }
     }
 
+    //获取Activity信息
     final int startActivityMayWait(IApplicationThread caller, int callingUid,
             String callingPackage, Intent intent, String resolvedType,
             IVoiceInteractionSession voiceSession, IVoiceInteractor voiceInteractor,
@@ -938,7 +940,7 @@ public final class ActivityStackSupervisor implements DisplayListener {
         // Don't modify the client's object!
         intent = new Intent(intent);
 
-        //获取启动activity信息
+        //解析Intent信息
         // Collect information about the target of the Intent.
         ActivityInfo aInfo =
                 resolveActivity(intent, resolvedType, startFlags, profilerInfo, userId);
@@ -1178,6 +1180,7 @@ public final class ActivityStackSupervisor implements DisplayListener {
         return ActivityManager.START_SUCCESS;
     }
 
+    //真正启动，切换到ApplicationThread
     final boolean realStartActivityLocked(ActivityRecord r,
             ProcessRecord app, boolean andResume, boolean checkConfig)
             throws RemoteException {
@@ -1283,6 +1286,7 @@ public final class ActivityStackSupervisor implements DisplayListener {
                 app.pendingUiClean = true;
             }
             app.forceProcessStateUpTo(mService.mTopProcessState);
+            //切换到Applicationthread
             app.thread.scheduleLaunchActivity(new Intent(r.intent), r.appToken,
                     System.identityHashCode(r), r.info, new Configuration(mService.mConfiguration),
                     new Configuration(stack.mOverrideConfig), r.compat, r.launchedFromPackage,
@@ -1364,6 +1368,7 @@ public final class ActivityStackSupervisor implements DisplayListener {
         return true;
     }
 
+    //判断是否已经启动过了，如果没有启动创建新进程
     void startSpecificActivityLocked(ActivityRecord r,
             boolean andResume, boolean checkConfig) {
         // Is this activity's application already running?
@@ -1372,6 +1377,7 @@ public final class ActivityStackSupervisor implements DisplayListener {
 
         r.task.stack.setLaunchTime(r);
 
+        //已经启动过了
         if (app != null && app.thread != null) {
             try {
                 if ((r.info.flags&ActivityInfo.FLAG_MULTIPROCESS) == 0
@@ -1394,6 +1400,7 @@ public final class ActivityStackSupervisor implements DisplayListener {
             // restart the application.
         }
 
+        //如果不存在，新建进程启动
         mService.startProcessLocked(r.processName, r.info.applicationInfo, true, 0,
                 "activity", r.intent.getComponent(), false, false, true);
     }
@@ -1635,7 +1642,7 @@ public final class ActivityStackSupervisor implements DisplayListener {
             return ActivityManager.START_SUCCESS;
         }
 
-        //即将启动activity信息
+        //创建即将要启动的Activity的相关信息
         ActivityRecord r = new ActivityRecord(mService, callerApp, callingUid, callingPackage,
                 intent, resolvedType, aInfo, mService.mConfiguration, resultRecord, resultWho,
                 requestCode, componentSpecified, voiceSession != null, this, container, options);
@@ -1806,6 +1813,7 @@ public final class ActivityStackSupervisor implements DisplayListener {
                 }
             }
 
+            //创建新task
             // Need to create an app stack for this user.
             stack = createStackOnDisplay(getNextStackId(), Display.DEFAULT_DISPLAY);
             if (DEBUG_FOCUS || DEBUG_STACK) Slog.d(TAG_FOCUS, "computeStackFocus: New stack r="
@@ -1829,6 +1837,7 @@ public final class ActivityStackSupervisor implements DisplayListener {
         return true;
     }
 
+    //确定Activity 启动模式，是否创建新的task
     final int startActivityUncheckedLocked(final ActivityRecord r, ActivityRecord sourceRecord,
             IVoiceInteractionSession voiceSession, IVoiceInteractor voiceInteractor, int startFlags,
             boolean doResume, Bundle options, TaskRecord inTask) {
@@ -1848,7 +1857,7 @@ public final class ActivityStackSupervisor implements DisplayListener {
         final boolean launchSingleTop = r.launchMode == ActivityInfo.LAUNCH_SINGLE_TOP;
         final boolean launchSingleInstance = r.launchMode == ActivityInfo.LAUNCH_SINGLE_INSTANCE;
         final boolean launchSingleTask = r.launchMode == ActivityInfo.LAUNCH_SINGLE_TASK;
-        //获取intent启动类型
+        //获取启动类型
         int launchFlags = intent.getFlags();
         if ((launchFlags & Intent.FLAG_ACTIVITY_NEW_DOCUMENT) != 0 &&
                 (launchSingleInstance || launchSingleTask)) {
@@ -2308,6 +2317,7 @@ public final class ActivityStackSupervisor implements DisplayListener {
         TaskRecord taskToAffiliate = launchTaskBehind && sourceRecord != null ?
                 sourceRecord.task : null;
 
+        //创建新task
         // Should this be considered a new task?
         if (r.resultTo == null && inTask == null && !addingToTask
                 && (launchFlags & Intent.FLAG_ACTIVITY_NEW_TASK) != 0) {
@@ -2729,6 +2739,7 @@ public final class ActivityStackSupervisor implements DisplayListener {
         return resumeTopActivitiesLocked(null, null, null);
     }
 
+    //做界面切换
     boolean resumeTopActivitiesLocked(ActivityStack targetStack, ActivityRecord target,
             Bundle targetOptions) {
         if (targetStack == null) {
@@ -2740,6 +2751,7 @@ public final class ActivityStackSupervisor implements DisplayListener {
             result = targetStack.resumeTopActivityLocked(target, targetOptions);
         }
 
+        //遍历所有task，
         for (int displayNdx = mActivityDisplays.size() - 1; displayNdx >= 0; --displayNdx) {
             final ArrayList<ActivityStack> stacks = mActivityDisplays.valueAt(displayNdx).mStacks;
             for (int stackNdx = stacks.size() - 1; stackNdx >= 0; --stackNdx) {

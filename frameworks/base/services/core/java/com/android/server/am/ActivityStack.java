@@ -864,6 +864,7 @@ final class ActivityStack {
                         prev.userId, System.identityHashCode(prev),
                         prev.shortComponentName);
                 mService.updateUsageStats(prev, false);
+                //回调ApplicationThread方法
                 prev.app.thread.schedulePauseActivity(prev.appToken, prev.finishing,
                         userLeaving, prev.configChangeFlags, dontWait);
             } catch (Exception e) {
@@ -1044,6 +1045,7 @@ final class ActivityStack {
         if (resumeNext) {
             final ActivityStack topStack = mStackSupervisor.getFocusedStack();
             if (!mService.isSleepingOrShuttingDown()) {
+                //
                 mStackSupervisor.resumeTopActivitiesLocked(topStack, prev, null);
             } else {
                 mStackSupervisor.checkReadyForSleepLocked();
@@ -1537,6 +1539,7 @@ final class ActivityStack {
         return resumeTopActivityLocked(prev, null);
     }
 
+    //暂停栈顶Activity
     final boolean resumeTopActivityLocked(ActivityRecord prev, Bundle options) {
         if (mStackSupervisor.inResumeTopActivity) {
             // Don't even start recursing.
@@ -1558,6 +1561,7 @@ final class ActivityStack {
         return result;
     }
 
+    //暂停栈顶Activity
     private boolean resumeTopActivityInnerLocked(ActivityRecord prev, Bundle options) {
         if (DEBUG_LOCKSCREEN) mService.logLockScreen("");
 
@@ -1576,6 +1580,7 @@ final class ActivityStack {
 
         cancelInitializingActivities();
 
+        //栈顶运行的Activity
         // Find the first activity that is not finishing.
         final ActivityRecord next = topRunningActivityLocked(null);
 
@@ -1721,16 +1726,19 @@ final class ActivityStack {
         }
 
         mStackSupervisor.setLaunchSource(next.info.applicationInfo.uid);
-
+        //!!! 暂停当前的activity
         // We need to start pausing the current activity so the top one
         // can be resumed...
         boolean dontWaitForPause = (next.info.flags&ActivityInfo.FLAG_RESUME_WHILE_PAUSING) != 0;
+        //pause栈中所有Activity
         boolean pausing = mStackSupervisor.pauseBackStacks(userLeaving, true, dontWaitForPause);
         if (mResumedActivity != null) {
             if (DEBUG_STATES) Slog.d(TAG_STATES,
                     "resumeTopActivityLocked: Pausing " + mResumedActivity);
             pausing |= startPausingLocked(userLeaving, false, true, dontWaitForPause);
         }
+
+        //有正在暂停的activity
         if (pausing) {
             if (DEBUG_SWITCH || DEBUG_STATES) Slog.v(TAG_STATES,
                     "resumeTopActivityLocked: Skip resume: need to start pausing");
@@ -1742,6 +1750,7 @@ final class ActivityStack {
                 mService.updateLruProcessLocked(next.app, true, null);
             }
             if (DEBUG_STACK) mStackSupervisor.validateTopActivitiesLocked();
+            //返回
             return true;
         }
 
@@ -1799,6 +1808,8 @@ final class ActivityStack {
                     + next.packageName + ": " + e);
         }
 
+        //为新的Activity做准备工作，后面调用startSpecificActivityLocked，并判断是否需要启动新的线程
+        //如窗口切换等等
         // We are starting up the next activity, so tell the window manager
         // that the previous one will be hidden soon.  This way it can know
         // to ignore it when computing the desired screen orientation.
@@ -1857,6 +1868,7 @@ final class ActivityStack {
         }
 
         ActivityStack lastStack = mStackSupervisor.getLastStack();
+        //第一次启动这里为空
         if (next.app != null && next.app.thread != null) {
             if (DEBUG_SWITCH) Slog.v(TAG_SWITCH, "Resume running: " + next);
 
@@ -1966,6 +1978,8 @@ final class ActivityStack {
                             next.nonLocalizedLabel, next.labelRes, next.icon, next.logo,
                             next.windowFlags, null, true);
                 }
+
+                //调用startSpecificActivityLocked
                 mStackSupervisor.startSpecificActivityLocked(next, true, false);
                 if (DEBUG_STACK) mStackSupervisor.validateTopActivitiesLocked();
                 return true;
@@ -2004,6 +2018,7 @@ final class ActivityStack {
                 if (DEBUG_SWITCH) Slog.v(TAG_SWITCH, "Restarting: " + next);
             }
             if (DEBUG_STATES) Slog.d(TAG_STATES, "resumeTopActivityLocked: Restarting " + next);
+            //调用startSpecificActivityLocked启动进程
             mStackSupervisor.startSpecificActivityLocked(next, true, true);
         }
 

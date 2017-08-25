@@ -1504,7 +1504,8 @@ public class Instrumentation {
         try {
             intent.migrateExtraStreamToClipData();
             intent.prepareToLeaveProcess();
-            //返回ActivityManagerService的远程接口，即ActivityManagerProxy接口
+            //返回ActivityManagerService的远程接口，即ActivityManagerProxy,
+            //实现IActivityManger类型的Binder对象，AMS
             int result = ActivityManagerNative.getDefault()
                 .startActivity(whoThread, who.getBasePackageName(), intent,
                         intent.resolveTypeIfNeeded(who.getContentResolver()),

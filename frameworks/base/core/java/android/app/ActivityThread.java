@@ -2293,6 +2293,7 @@ public final class ActivityThread {
     private Activity performLaunchActivity(ActivityClientRecord r, Intent customIntent) {
         // System.out.println("##### [" + System.currentTimeMillis() + "] ActivityThread.performLaunchActivity(" + r + ")");
 
+        // 1-获取Activity组件信息
         ActivityInfo aInfo = r.activityInfo;
         if (r.packageInfo == null) {
             r.packageInfo = getPackageInfo(aInfo.applicationInfo, r.compatInfo,
@@ -2314,7 +2315,7 @@ public final class ActivityThread {
         Activity activity = null;
         try {
             java.lang.ClassLoader cl = r.packageInfo.getClassLoader();
-            //通过classloader 加载Activity类
+            //通过classloader 加载Activity类，创建Activity实例
             activity = mInstrumentation.newActivity(
                     cl, component.getClassName(), r.intent);
             StrictMode.incrementExpectedActivityCount(activity.getClass());
@@ -2331,6 +2332,7 @@ public final class ActivityThread {
             }
         }
 
+        //通过loadapk创建Application对象
         try {
             Application app = r.packageInfo.makeApplication(false, mInstrumentation);
 
@@ -2476,6 +2478,7 @@ public final class ActivityThread {
         // Initialize before creating the activity
         WindowManagerGlobal.initialize();
 
+        //启动Activity
         Activity a = performLaunchActivity(r, customIntent);
 
         if (a != null) {
@@ -5243,6 +5246,7 @@ public final class ActivityThread {
             android.ddm.DdmHandleAppName.setAppName("<pre-initialized>",
                                                     UserHandle.myUserId());
             RuntimeInit.setApplicationObject(mAppThread.asBinder());
+            //返回AMS代理
             final IActivityManager mgr = ActivityManagerNative.getDefault();
             try {
                 mgr.attachApplication(mAppThread);
@@ -5279,6 +5283,7 @@ public final class ActivityThread {
                 mInstrumentation = new Instrumentation();
                 ContextImpl context = ContextImpl.createAppContext(
                         this, getSystemContext().mPackageInfo);
+                //创建application实例
                 mInitialApplication = context.mPackageInfo.makeApplication(true, null);
                 mInitialApplication.onCreate();
             } catch (Exception e) {
